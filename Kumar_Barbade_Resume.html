@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kumar Barbade - Resume</title>
+<script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.js"></script><style>
+  :root{
+    /* Replaced dark blue with light grey variations */
+    --navy: #e2e6ea; 
+    --navy-dark: #d3d9df; 
+    --sidebar: #f1f3f5; 
+    --text: #2b2b2b;
+    --muted: #5b6472;
+    --pill: #dee2e6; 
+    --line: #dbe1ea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    /* Updated font to Calibri */
+    font-family: Calibri, 'Segoe UI', Arial, Helvetica, sans-serif;
+    background:#e9ebee;
+    color:var(--text);
+  }
+  .page{
+    max-width:960px;
+    margin:24px auto;
+    background:#fff;
+    display:flex;
+    box-shadow:0 6px 24px rgba(0,0,0,0.15);
+    min-height:1250px;
+    position:relative;
+    overflow:hidden;
+  }
+  /* SIDEBAR */
+  .sidebar{
+    width:34%;
+    background:var(--sidebar);
+    color:var(--text); /* Changed text to dark for contrast */
+    padding:32px 24px;
+  }
+  .photo-wrap{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:5px solid #fff; /* Solid white border for better contrast on grey */
+    overflow:hidden;
+    margin:0 auto 28px auto;
+  }
+  .photo-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .contact-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 32px 0;
+    font-size:15px;
+    line-height:1.9;
+  }
+  .contact-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    word-break:break-word;
+  }
+  .contact-list .icon{
+    flex:0 0 16px;
+    margin-top:2px;
+  }
+  .contact-list a{
+    color:var(--text); /* Changed text to dark */
+    text-decoration:none;
+  }
+  .side-section-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:.3px;
+    text-transform:none;
+    border-bottom:1px solid #d3d9df; /* Adjusted border color */
+    padding-bottom:8px;
+    margin:0 0 14px 0;
+  }
+  .side-section-title .dot-icon{
+    width:16px;
+    height:16px;
+    flex:0 0 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .sidebar .block{
+    margin-bottom:30px;
+  }
+  .pill-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    font-weight: bold;
+    font-size:14px;
+  }
+  .pill{
+    background:var(--pill);
+    color:var(--text); /* Changed text to dark */
+    padding:6px 12px;
+    border-radius:14px;
+    line-height:1.2;
+    white-space:nowrap;
+  }
+  .cert-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    font-size:14px;
+    line-height:1.6;
+  }
+  .cert-list li{
+    margin-bottom:12px;
+    font-weight:600;
+    padding-left:14px;
+    position:relative;
+  }
+  .cert-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:6px;
+    width:5px;
+    height:5px;
+    background:var(--text); /* Changed bullet to dark */
+    border-radius:50%;
+  }
+
+  /* MAIN */
+  .main{
+    width:66%;
+    position:relative;
+  }
+  .header-band{
+    background:var(--navy);
+    color:var(--text); /* Changed text to dark */
+    padding:34px 40px 26px 40px;
+    position:relative;
+    overflow:hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
+  }
+  .header-band h1{
+    margin:0 0 6px 0;
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:.3px;
+  }
+  .header-band .role{
+    font-size:16px;
+    font-weight:300;
+    letter-spacing:.5px;
+    color:var(--muted); /* Adjusted for contrast */
+  }
+  .main-body{
+    padding:6px 40px 40px 40px;
+  }
+  .section{
+    margin-top:26px;
+  }
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:18px;
+    font-weight:700;
+    color:var(--text); /* Removed navy text color */
+    border-bottom:2px solid #ccc; /* Adjusted to standard grey line */
+    padding-bottom:8px;
+    margin-bottom:14px;
+  }
+  .section-title .sq-icon{
+    width:22px;
+    height:22px;
+    flex:0 0 22px;
+    background:var(--navy-dark); /* Changed from navy to darker grey */
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .section-title .sq-icon svg{
+    width:13px;
+    height:13px;
+    fill:var(--text); /* Changed icon fill from white to dark */
+  }
+  .profile-text{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--text);
+    margin:0;
+  }
+  .edu-item{
+    margin-bottom:14px;
+  }
+  .edu-date{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:2px;
+  }
+  .edu-degree{
+    font-size:15px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .edu-school{
+    font-size:14px;
+    color:var(--text);
+  }
+  .edu-school b{
+    font-weight:700;
+  }
+  .job{
+    margin-bottom:20px;
+  }
+  .job-date{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:2px;
+  }
+  .job-title{
+    font-size:15px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:2px;
+  }
+  .job-company{
+    font-weight:700;
+  }
+  .kra-label{
+    font-size:13px;
+    font-weight:700;
+    margin:6px 0 6px 0;
+    color:var(--text);
+  }
+  ul.bullets{
+    margin:0;
+    padding-left:18px;
+    font-size:14px;
+    line-height:1.6;
+    color:var(--text);
+  }
+  ul.bullets li{
+    margin-bottom:6px;
+  }
+  ul.bullets b{
+    font-weight:700;
+  }
+  .proj-item{
+    margin-bottom:18px;
+  }
+  .proj-duration{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:400;
+  }
+  .proj-title{
+    font-size:15px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:6px;
+  }
+  .sidebar-text{
+    font-size:14px;
+  }
+  .sidebar-text-spaced{
+    font-size:14px;
+    line-height:1.8;
+  }
+
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none;margin:0;max-width:none;}
+  }
+  @media (max-width:720px){
+    .page{flex-direction:column;}
+    .sidebar,.main{width:100%;}
+    .header-band{clip-path:none;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="sidebar">
+    <div class="photo-wrap">
+      <img src="data:image/jpeg;base64,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" alt="Kumar Barbade">
+    </div>
+
+    <ul class="contact-list">
+      <li><span class="icon">🕓</span><span>3 Years 6 Month</span></li>
+      <li><span class="icon">✉</span><span>kubarbade@gmail.com</span></li>
+      <li><span class="icon">📞</span><span>(+91) 9405841593</span></li>
+      <li><span class="icon">🔗</span><a href="https://www.linkedin.com/in/kumar-barbade-452381166/" target="_blank">linkedin.com/in/kumar-barbade-452381166/</a></li>
+    </ul>
+
+    <div class="block">
+      <div class="side-section-title"><span class="dot-icon">◈</span>Key Skills</div>
+      <div class="pill-wrap">
+        <span class="pill">.NET Core</span>
+        <span class="pill">ASP.NET Core</span>
+        <span class="pill">C#</span>
+        <span class="pill">.NET Framework</span>
+        <span class="pill">Javascript</span>
+        <span class="pill">jQuery</span>
+        <span class="pill">HTML and CSS</span>
+        <span class="pill">MySQL</span>
+        <span class="pill">Cloud Firestore</span>  
+        <span class="pill">Python</span>
+        <span class="pill">Fast API</span> 
+        <span class="pill">Atlassian Bitbucket</span>
+        <span class="pill">GitHub</span>
+        <span class="pill">Jenkins</span>
+        <span class="pill">Cloud Pubsub</span>
+        <span class="pill">JIRA</span>
+        <span class="pill">Angular</span>
+        <span class="pill">Cloud Functions</span>
+        <span class="pill">Web API</span>
+        <span class="pill">Restfull API</span>
+        <span class="pill">Agile</span>
+        <span class="pill">OOPS</span>
+        <span class="pill">Design Patterns</span>
+        <span class="pill">Azure DevOps</span>
+        <span class="pill">Multithreading</span>
+        <span class="pill">SDLC</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="side-section-title"><span class="dot-icon">🏅</span>Certification</div>
+      <ul class="cert-list">
+        <li>Post Graduate Diploma in Advanced Computing</li>
+        <li>Certificate of Recognition: Star Performer of the Year</li>
+        <li>Angular 20 and ASP.NET Core Web API – Real World Application (Udemy)</li>
+        <li>Microsoft Azure Fundamentals (AZ-900) Course + Practice Test (Udemy)</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="side-section-title"><span class="dot-icon">🌐</span>Languages</div>
+      <div class="sidebar-text">English, Marathi, Hindi</div>
+    </div>
+
+    <div class="block">
+      <div class="side-section-title"><span class="dot-icon">🎯</span>Hobbies</div>
+      <div class="sidebar-text">Travel, Sci-Fiction movies</div>
+    </div>
+
+    <div class="block">
+      <div class="side-section-title"><span class="dot-icon">👤</span>Personal Information</div>
+      <div class="sidebar-text-spaced">
+        City: Solapur<br>
+        Country: INDIA
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header-band">
+      <h1>Kumar Barbade</h1>
+      <div class="role">Senior Software Engineer</div>
+    </div>
+
+    <div class="main-body">
+
+      <div class="section">
+        <div class="section-title"><span class="sq-icon">📋</span>Profile Summary</div>
+        <p class="profile-text">
+          Full Stack .NET Developer with 3+ years of experience in designing and developing scalable healthcare
+          web applications using ASP.NET Core, .NET Framework, C#, Angular, JavaScript, and MySQL. Strong expertise
+          in <b>frontend-backend integration, database optimization, and real-time systems</b>. Adept at Agile
+          methodologies, CI/CD pipelines, and delivering high-performance enterprise applications.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="sq-icon">🎓</span>Education</div>
+        <div class="edu-item">
+          <div class="edu-date">2022, Full-time</div>
+          <div class="edu-degree">PG Diploma, Computers</div>
+          <div class="edu-school"><b>Centre for Development of Advanced Computing (CDAC)</b>, 64%</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date">2018, Full Time</div>
+          <div class="edu-degree">B.Tech/B.E., Mechanical Engineering</div>
+          <div class="edu-school"><b>Walchand Institute of Technology, Solapur</b>, 72%</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="sq-icon">💼</span>Work Experience</div>
+
+        <div class="job">
+          <div class="job-date">2025 - Present</div>
+          <div class="job-title">Senior Software Engineer</div>
+          <div class="job-company">IKS HEALTH</div>
+          <div class="kra-label">Key Result Area</div>
+          <ul class="bullets">
+            <li>Developed full-stack healthcare applications using ASP.NET Core, MySQL, and Angular for <b>physician appointment and clinical documentation workflows</b>.</li>
+            <li>Built <b>RESTful APIs and Python FastAPI</b> microservices for healthcare data processing and <b>Google Cloud Firestore integration</b>.</li>
+            <li>Implemented <b>PDF generation and print-preview features</b> for compliant patient record management.</li>
+            <li>Developed cloud-native microservices on <b>Google Cloud Platform (Cloud Functions, Pub/Sub)</b> to support scalable and reliable healthcare solutions.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-date">2022 - 2025</div>
+          <div class="job-title">Product Engineer</div>
+          <div class="job-company">IKS HEALTH</div>
+          <div class="kra-label">Key Result Area</div>
+          <ul class="bullets">
+            <li>Developed and enhanced ASP.NET Core applications, improving healthcare workflow automation and user productivity.</li>
+            <li>Implemented <b>automated patient encounter allocation</b>, reducing manual effort and improving operational efficiency.</li>
+            <li>Optimized database performance and supported <b>MySQL migration from 5.6 to 8.0</b>, improving application reliability and scalability.</li>
+            <li>Built <b>real-time dashboards using Firestore</b> and enhanced system reliability through event-driven architecture and <b>cloud-based logging</b>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="sq-icon">📁</span>Projects</div>
+
+        <div class="proj-item">
+          <div class="proj-title">Pre-Visit Summary of Patient <span class="proj-duration">— 11 Months</span></div>
+          <ul class="bullets">
+            <li>Developed a pre-visit summary feature that improved physician diagnosis efficiency and reduced consultation time.</li>
+            <li>Improved clinical documentation quality and review processes, enhancing provider workflow efficiency.</li>
+          </ul>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-title">Pull Based Allocation of Appointments <span class="proj-duration">— 4 Months</span></div>
+          <ul class="bullets">
+            <li>Implemented automated allocation of patient encounters to scribes based on a prioritized queue in the database, ensuring timely documentation and delivery of clinical summaries.</li>
+            <li>This feature enabled providers to enhance workflow efficiency, reduce turnaround time, and ultimately improve revenue and clinical productivity.</li>
+          </ul>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-title">Real-Time Scribe Monitoring Dashboard <span class="proj-duration">— 10 Months</span></div>
+          <ul class="bullets">
+            <li>Developed a real-time dashboard for Team Leads to monitor active scribes and the status of patient encounters, enhancing operational oversight and resource allocation.</li>
+            <li>Leveraged Google Cloud Firestore (NoSQL) for dynamic data access and built the web application using ASP.NET Core to ensure cross-platform compatibility within healthcare environments.</li>
+          </ul>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-title">Database Migration &amp; Performance Optimization <span class="proj-duration">— 6 Months</span></div>
+          <ul class="bullets">
+            <li>Led MySQL migration from 5.6 to 8.0, improving database performance, reliability, and scalability.</li>
+            <li>Upgraded MySQL libraries across .NET applications and APIs, ensuring seamless compatibility with MySQL 8.0.</li>
+          </ul>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-title">Web Portal for Physician To monitor Appointments <span class="proj-duration">— 12 Months</span></div>
+          <ul class="bullets">
+            <li>Developed Scribble Now, a .NET Core healthcare web application, to optimize physician documentation workflows and enhance operational efficiency.</li>
+            <li>Enabled PDF generation and print preview functionalities for chart notes, ensuring accurate, compliant, and easily shareable patient records.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div style="display:flex; justify-content:center; gap:12px; margin:20px auto 40px;">
+  <button id="exportDocx" style="padding:10px 16px; border:none; border-radius:6px; background:#2f4f4f; color:#fff; cursor:pointer;">Download Resume (.docx)</button>
+  <button id="exportPdf" style="padding:10px 16px; border:none; border-radius:6px; background:#6c757d; color:#fff; cursor:pointer;">Download Resume (.pdf)</button>
+</div>
+
+<script>
+  function createWordFriendlyHtml() {
+    const sidebar = document.querySelector('.sidebar').innerHTML;
+    const main = document.querySelector('.main').innerHTML;
+
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+
+        <style>
+            body{
+                font-family:Calibri, Arial, sans-serif;
+                margin:0;
+            }
+
+            table.layout{
+                width:100%;
+                border-collapse:collapse;
+            }
+
+            td.sidebar{
+                width:34%;
+                background:#f1f3f5;
+                padding:20px;
+                vertical-align:top;
+            }
+
+            td.main{
+                width:66%;
+                padding:20px;
+                vertical-align:top;
+            }
+
+            img{
+                max-width:100%;
+                height:auto;
+            }
+
+            ul{
+                margin-top:4px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <table class="layout">
+            <tr>
+                <td class="sidebar">
+                    ${sidebar}
+                </td>
+
+                <td class="main">
+                    ${main}
+                </td>
+            </tr>
+        </table>
+
+    </body>
+    </html>`;
+  }
+
+  function downloadDocx() {
+    const html = createWordFriendlyHtml();
+    const blob = htmlDocx.asBlob(html);
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "Kumar_Barbade_Resume.docx";
+    a.click();
+  }
+
+  function downloadPdf() {
+    const element = document.querySelector('.page');
+
+    // Ensure the page is visible and correctly styled
+    element.style.display = 'flex'; 
+
+    const options = {
+      margin: 0,
+      filename: 'Kumar_Barbade_Resume.pdf',
+
+      image: { type: 'jpeg', quality: 1 }, // High quality image
+      html2canvas: { 
+
+        scale: 3, // Increased scale for sharpness
+        useCORS: true,
+        logging: false,
+        letterRendering: true,
+
+        windowWidth: element.scrollWidth,
+        width: element.scrollWidth
+      },
+
+
+      jsPDF: { 
+        unit: 'pt', 
+        format: 'a4', 
+        orientation: 'portrait' 
+      },
+      pagebreak: { 
+        mode: ['avoid-all', 'css', 'legacy'],
+        before: '.section', // Force section start on new page if needed
+        after: '.page' 
+      }
+    };
+
+    html2pdf().set(options).from(element).save();
+  }
+
+  document.getElementById("exportDocx").onclick = downloadDocx;
+  document.getElementById("exportPdf").onclick = downloadPdf;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</body>
+</html>
