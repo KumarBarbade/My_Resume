@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Kumar Barbade - Resume</title>
   <script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     :root {
       /* Replaced dark blue with light grey variations */
@@ -49,21 +50,40 @@
       padding: 32px 24px;
     }
 
-    .photo-wrap {
+    /* .photo-wrap {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       border: 5px solid #fff;
-      /* Solid white border for better contrast on grey */
       overflow: hidden;
       margin: 0 auto 28px auto;
-    }
+    } */
 
-    .photo-wrap img {
+    /* .photo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
+    } */
+
+    .photo-wrap{
+    width:160px;
+    height:160px;
+    margin:0 auto 28px;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid #fff;
+    box-shadow:0 3px 10px rgba(0,0,0,0.18);
+    background:#fff;
+}
+
+.photo-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 18%;
+    image-rendering:auto;
+    display:block;
+}
 
     .contact-list {
       list-style: none;
@@ -380,9 +400,7 @@
 
     <div class="sidebar">
       <div class="photo-wrap">
-        <img
-          src="data:image/jpeg;base64,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"
-          alt="Kumar Barbade">
+          <img src="KumarPhoto.jpg" alt="Kumar Barbade">
       </div>
 
       <ul class="contact-list">
@@ -598,14 +616,14 @@
   </div>
 
   <!-- <div style="display:flex; justify-content:center; gap:12px; margin:20px auto 40px;">
-  <button id="exportDocx" style="padding:10px 16px; border:none; border-radius:6px; background:#2f4f4f; color:#fff; cursor:pointer;">Download Resume (.docx)</button>
-  <button id="exportPdf" style="padding:10px 16px; border:none; border-radius:6px; background:#6c757d; color:#fff; cursor:pointer;">Download Resume (.pdf)</button>
-</div> -->
+    <button id="exportDocx" style="padding:10px 16px; border:none; border-radius:6px; background:#2f4f4f; color:#fff; cursor:pointer;">Download Resume (.docx)</button>
+    <button id="exportPdf" style="padding:10px 16px; border:none; border-radius:6px; background:#6c757d; color:#fff; cursor:pointer;">Download Resume (.pdf)</button>
+  </div> -->
 
   <script>
     function createWordFriendlyHtml() {
-      const sidebar = document.querySelector('.sidebar').innerHTML;
-      const main = document.querySelector('.main').innerHTML;
+      const sidebar = document.querySelector('.sidebar') ? document.querySelector('.sidebar').innerHTML : '';
+      const main = document.querySelector('.main') ? document.querySelector('.main').innerHTML : '';
 
       return `
     <!DOCTYPE html>
@@ -667,15 +685,20 @@
 
     function downloadDocx() {
       const html = createWordFriendlyHtml();
-      const blob = htmlDocx.asBlob(html);
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = "Kumar_Barbade_Resume.docx";
-      a.click();
+      if (typeof htmlDocx !== 'undefined' && htmlDocx.asBlob) {
+        const blob = htmlDocx.asBlob(html);
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "Kumar_Barbade_Resume.docx";
+        a.click();
+      } else {
+        console.error("htmlDocx library is not loaded.");
+      }
     }
 
     function downloadPdf() {
       const element = document.querySelector('.page');
+      if (!element) return;
 
       // Ensure the page is visible and correctly styled
       element.style.display = 'flex';
@@ -684,18 +707,17 @@
         margin: 0,
         filename: 'Kumar_Barbade_Resume.pdf',
 
-        image: { type: 'jpeg', quality: 1 }, // High quality image
+        image: { type: 'jpeg', quality: 1 },
         html2canvas: {
-
-          scale: 3, // Increased scale for sharpness
+          scale: 4,
           useCORS: true,
+          allowTaint: false,
+          imageTimeout: 0,
           logging: false,
-          letterRendering: true,
-
+          backgroundColor: "#ffffff",
           windowWidth: element.scrollWidth,
           width: element.scrollWidth
         },
-
 
         jsPDF: {
           unit: 'pt',
@@ -704,18 +726,24 @@
         },
         pagebreak: {
           mode: ['avoid-all', 'css', 'legacy'],
-          before: '.section', // Force section start on new page if needed
+          before: '.section',
           after: '.page'
         }
       };
 
-      html2pdf().set(options).from(element).save();
+      if (typeof html2pdf !== 'undefined') {
+        html2pdf().set(options).from(element).save();
+      } else {
+        console.error("html2pdf library is not loaded.");
+      }
     }
 
-    document.getElementById("exportDocx").onclick = downloadDocx;
-    document.getElementById("exportPdf").onclick = downloadPdf;
+    const exportDocxBtn = document.getElementById("exportDocx");
+    if (exportDocxBtn) exportDocxBtn.onclick = downloadDocx;
+
+    const exportPdfBtn = document.getElementById("exportPdf");
+    if (exportPdfBtn) exportPdfBtn.onclick = downloadPdf;
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 </body>
 
