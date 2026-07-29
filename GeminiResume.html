@@ -21,7 +21,7 @@
             max-width: 850px;
             margin: 0 auto;
             padding: 40px 35px;
-            border: 1px solid #111111;
+            /* border: 1px solid #111111; */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
         }
@@ -75,6 +75,15 @@
             font-size: 11pt;
         }
 
+        .contact-info a {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .contact-info a:hover {
+            color: #0056b3;
+        }
+
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -92,6 +101,24 @@
 
         .skills-container p {
             margin: 4px 0;
+        }
+
+        .skills-container ul {
+            column-count: 3;
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-gap: 20px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .skills-container li {
+            break-inside: avoid-column;
+            /* Prevents bullets from splitting across columns */
+            page-break-inside: avoid;
+            margin-bottom: 5px;
+            font-size: 11pt;
         }
 
         /* Export Button Styles - Kept at the Next Page */
@@ -137,7 +164,7 @@
             #resume-content {
                 box-shadow: none;
                 padding: 0;
-                border: 1px solid #111111;
+                /* border: 1px solid #111111; */
             }
         }
     </style>
@@ -149,28 +176,49 @@
         <!-- Contact Information -->
         <div class="contact-info">
             <h1>Kumar Barbade</h1>
-            <p>(+91) 9405841593 | kubarbade@gmail.com | LinkedIn: linkedin.com/in/kumar-barbade-452381166/</p>
+            <p>(+91) 9405841593 | <a href="mailto:kubarbade@gmail.com">kubarbade@gmail.com</a> | <a href="https://www.linkedin.com/in/kumar-barbade-452381166/" target="_blank">LinkedIn</a></p>
         </div>
 
         <!-- Professional Summary -->
         <h2>PROFESSIONAL SUMMARY</h2>
         <p>Senior Software Engineer with 3.8 years of experience in designing and developing scalable healthcare
-            applications using C#, ASP.NET Core, .NET Framework, Angular 22, Python FastAPI, MySQL, and Google Cloud
+            applications using C#, ASP.NET Core, .NET Framework, Python FastAPI, MySQL, and Google Cloud
             Platform. Expertise in full-stack application development, RESTful API development, microservices. Strong
             knowledge of database optimization, SDLC, Agile/Scrum, CI/CD, and cross-functional collaboration, delivering
             high-performance enterprise solutions.</p>
 
         <!-- Technical Skills -->
         <h2>TECHNICAL SKILLS</h2>
+
         <div class="skills-container">
-            <p><strong>Programming Languages:</strong> C#, Python</p>
-            <p><strong>Frameworks &amp; Architecture:</strong> ASP.NET Core, .NET Framework, Angular 18/22, FastAPI,
-                REST APIs, Web API, Entity Framework Core, LINQ, Dependency Injection, Middleware, Microservices</p>
-            <p><strong>Frontend Development:</strong> React 19, JavaScript, jQuery, HTML5, CSS3</p>
-            <p><strong>Databases:</strong> MySQL, SQL Server, Google Cloud Firestore</p>
-            <p><strong>Cloud &amp; DevOps:</strong> Google Cloud Platform (GCP), Cloud Functions, Azure DevOps, Git,
-                Jenkins, CI/CD</p>
-            <p><strong>Software Engineering:</strong> OOP, Design Patterns, SDLC, Agile/Scrum, Multithreading</p>
+            <ul>
+                <li>C#</li>
+                <li>.NET Framework</li>
+                <li>ASP.NET Core</li>
+                <li>MySQL</li>
+                <li>Python</li>
+                <li>FastAPI</li>
+                <li>JavaScript</li>
+                <li>jQuery</li>
+                <li>HTML5 and CSS3</li>
+                <li>Angular 22</li>
+                <li>React 19</li>
+                <li>REST APIs</li>
+                <li>Entity Framework Core</li>
+                <li>LINQ</li>
+                <li>Design Patterns</li>
+                <li>Dependency Injection</li>
+                <li>Microservices</li>  
+                <li>Google Cloud Firestore</li>
+                <li>Google Cloud Platform</li>
+                <li>Azure Cloud</li>
+                <li>Git</li>
+                <li>Jenkins CI/CD</li>
+                <li>OOPS</li>
+                <li>SDLC</li>
+                <li>Agile Scrum</li>
+                <li>Multithreading</li>
+            </ul>
         </div>
 
         <!-- Professional Experience -->
@@ -182,11 +230,11 @@
         </div>
         <ul>
             <li>Developed full-stack healthcare applications using <strong>ASP.NET Core</strong>,
-                <strong>MySQL</strong>, and <strong>REST APIs</strong>.</li>
+                <strong>MySQL</strong>, and <strong>REST APIs</strong>.
+            </li>
             <li>Built <strong>Python FastAPI microservices</strong> integrated with <strong>Google Cloud
                     Firestore</strong> for healthcare data processing.</li>
-            <li>Implemented <strong>PDF generation and print preview</strong> features for compliant clinical
-                documentation.</li>
+            <li>Collaborate with Product Managers, QA and cross-functional teams following Agile methodology.</li>
         </ul>
 
         <div class="section-header">
@@ -196,8 +244,7 @@
         <ul>
             <li>Automated <strong>patient encounter allocation</strong>, improving workflow efficiency and reducing
                 manual effort.</li>
-            <li>Led <strong>MySQL migration</strong> from version 5.6 to 8.0, improving application performance and
-                database reliability.</li>
+            <li>Built Real-Time Monitoring Dashboard using <strong>Google Cloud Firestore</strong> for Team Leads on Production Floor.</li>
             <li>Updated <strong>.NET applications and Web APIs</strong> for seamless compatibility with <strong>MySQL
                     8.0</strong>.</li>
         </ul>
@@ -247,7 +294,7 @@
         <h2>EDUCATION</h2>
         <ul>
             <li><strong>PG Diploma in Computers</strong> — Centre for Development of Advanced Computing (CDAC) | 2022
-                </li>
+            </li>
             <li><strong>B.Tech / B.E. in Mechanical Engineering</strong> — Walchand Institute of Technology, Solapur |
                 2018 </li>
         </ul>
@@ -289,6 +336,19 @@
             }
             if (document.querySelectorAll("img").length > 1) {
                 errors.push("Too many images may reduce ATS compatibility.");
+            }
+
+            // Clickable Email and LinkedIn Link Validation
+            const emailLink = document.querySelector('.contact-info a[href^="mailto:"]');
+            if (!emailLink) {
+                errors.push("Clickable email mailto link missing.");
+            }
+
+            const linkedInLink = document.querySelector('.contact-info a[href*="linkedin.com"]');
+            if (!linkedInLink) {
+                errors.push("Clickable LinkedIn link missing.");
+            } else if (linkedInLink.innerText.trim() !== "LinkedIn") {
+                errors.push("LinkedIn link text should be exactly 'LinkedIn'.");
             }
 
             if (errors.length === 0) {
