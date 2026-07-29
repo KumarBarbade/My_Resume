@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Professional Resume</title>
+
+<!--
+==========================================================
+ATS FRIENDLY PROFESSIONAL RESUME TEMPLATE
+
+Author : ChatGPT
+Version : 1.0
+
+Features
+
+✓ ATS Compatible
+✓ A4 Layout
+✓ Calibri Font
+✓ Printable
+✓ Searchable PDF
+✓ DOC Export
+✓ Embedded CSS
+✓ Embedded JavaScript
+
+==========================================================
+-->
+
+<style>
+
+/*=========================================================
+RESET
+=========================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#ececec;
+
+    font-family:
+
+        Calibri,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:#111;
+
+    font-size:11pt;
+
+    line-height:1.35;
+
+}
+
+/*=========================================================
+VARIABLES
+=========================================================*/
+
+:root{
+
+    --page-width:210mm;
+
+    --page-height:297mm;
+
+    --page-bg:#ffffff;
+
+    --text:#111111;
+
+    --heading:#000000;
+
+    --line:#444444;
+
+    --margin-left:16mm;
+
+    --margin-right:16mm;
+
+    --margin-top:14mm;
+
+    --margin-bottom:15mm;
+
+    --section-gap:14px;
+
+    --paragraph-gap:5px;
+
+    --heading-size:13pt;
+
+    --body-size:10.5pt;
+
+    --name-size:24pt;
+
+}
+
+/*=========================================================
+PAGE
+=========================================================*/
+
+.resume-page{
+
+    width:210mm;
+
+    min-height:297mm;
+
+    background:#fff;
+
+    margin:12mm auto;
+
+    box-shadow:0 0 10px rgba(0,0,0,.18);
+
+    padding:
+
+        var(--margin-top)
+
+        var(--margin-right)
+
+        var(--margin-bottom)
+
+        var(--margin-left);
+
+}
+
+/*=========================================================
+PRINT
+=========================================================*/
+
+@page{
+
+    size:A4;
+
+    margin:15mm;
+
+}
+
+@media print{
+
+body{
+
+background:#fff;
+
+}
+
+.resume-page{
+
+margin:0;
+
+width:100%;
+
+min-height:auto;
+
+box-shadow:none;
+
+padding:0;
+
+}
+
+.no-print{
+
+display:none !important;
+
+}
+
+}
+
+/*=========================================================
+TYPOGRAPHY
+=========================================================*/
+
+h1{
+
+font-size:24pt;
+
+font-weight:700;
+
+letter-spacing:.3px;
+
+text-align:center;
+
+color:#111;
+
+margin-bottom:5px;
+
+}
+
+.contact{
+
+font-size:10.5pt;
+
+text-align:center;
+
+margin-bottom:14px;
+
+}
+
+.contact a{
+
+color:#111;
+
+text-decoration:none;
+
+}
+
+.contact span{
+
+margin:0 5px;
+
+}
+
+.section{
+
+margin-top:16px;
+
+}
+
+.section-title{
+
+font-size:13pt;
+
+font-weight:700;
+
+letter-spacing:.8px;
+
+text-transform:uppercase;
+
+padding-bottom:3px;
+
+border-bottom:1px solid #444;
+
+margin-bottom:8px;
+
+}
+
+.section p{
+
+font-size:10.5pt;
+
+text-align:justify;
+
+margin-bottom:5px;
+
+}
+
+ul{
+
+margin-left:20px;
+
+margin-top:5px;
+
+}
+
+li{
+
+margin-bottom:4px;
+
+line-height:1.35;
+
+}
+
+/*=========================================================
+COMPANY
+=========================================================*/
+
+.company-row{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-start;
+
+margin-top:8px;
+
+margin-bottom:4px;
+
+}
+
+.company{
+
+font-weight:700;
+
+font-size:11pt;
+
+}
+
+.duration{
+
+font-weight:700;
+
+font-size:10.5pt;
+
+white-space:nowrap;
+
+}
+
+.project{
+
+font-weight:700;
+
+margin-bottom:6px;
+
+}
+
+.role{
+
+font-style:italic;
+
+margin-bottom:6px;
+
+}
+
+/*=========================================================
+SKILLS
+=========================================================*/
+
+.skills-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+column-gap:20px;
+
+row-gap:4px;
+
+}
+
+/*=========================================================
+BUTTONS
+=========================================================*/
+
+.actions{
+
+margin:30px auto;
+
+text-align:center;
+
+}
+
+.actions button{
+
+padding:10px 22px;
+
+margin:5px;
+
+font-size:14px;
+
+cursor:pointer;
+
+border:none;
+
+background:#222;
+
+color:#fff;
+
+border-radius:4px;
+
+transition:.2s;
+
+}
+
+.actions button:hover{
+
+background:#000;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="resume-page" id="resume">
+
+<header>
+
+<h1>AKSHAY SHINDE</h1>
+
+<div class="contact">
+
+<a href="tel:+917767882400">
++91 7767882400
+</a>
+
+<span>|</span>
+
+<a href="mailto:akshinde331@gmail.com">
+akshinde331@gmail.com
+</a>
+
+<span>|</span>
+
+<a href="#">
+LinkedIn
+</a>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+PROFESSIONAL SUMMARY
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+Professional Summary
+
+</div>
+
+<p>
+
+Certified Salesforce Developer with 3.2+ years of experience
+designing and delivering scalable solutions on the Salesforce
+Platform. Skilled in Apex, Lightning Web Components (LWC),
+Lightning Flows, asynchronous Apex, REST API integrations,
+AppExchange application development and managed package
+development.
+
+</p>
+
+<p>
+
+Hands-on experience in building secure, high-performance,
+maintainable enterprise applications with strong focus on
+code quality, reusable architecture, testing and platform
+best practices.
+
+</p>
+
+</section>
+
+<!-- NEXT SECTION (Key Achievements) continues in Part 2 -->
+
+<!-- =====================================================
+KEY ACHIEVEMENTS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+        Key Achievements
+    </div>
+
+    <ul>
+
+        <li>
+            <strong>Boosted Efficiency</strong><br>
+            Improved document management efficiency by
+            30% through custom Apex developments.
+        </li>
+
+        <li>
+            <strong>Reduced Errors</strong><br>
+            Reduced integration errors by 25%
+            with enhanced REST API endpoints.
+        </li>
+
+        <li>
+            <strong>Enhanced Scalability</strong><br>
+            Increased application scalability by
+            40% using reusable Lightning Components.
+        </li>
+
+        <li>
+            <strong>AppExchange Readiness</strong><br>
+            Achieved 99% AppExchange readiness with
+            optimized managed packages.
+        </li>
+
+    </ul>
+
+</section>
+
+<!-- =====================================================
+PROFESSIONAL EXPERIENCE
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+Professional Experience
+
+</div>
+
+<div class="company-row">
+
+<div class="company">
+
+Enzigma Solutions LLP, Pune
+
+</div>
+
+<div class="duration">
+
+March 2023 – Present
+
+</div>
+
+</div>
+
+<div class="project">
+
+Project : docuWeaver
+
+</div>
+
+<p>
+
+docuWeaver is a Salesforce-native Second Generation
+Packaging (2GP) managed package for document
+management and document generation. The platform
+supports multiple cloud storage providers and advanced
+automation workflows.
+
+</p>
+
+<p>
+
+The application consists of two primary modules:
+
+</p>
+
+<ul>
+
+<li>
+
+Document Management
+
+</li>
+
+<li>
+
+Document Generation using Node.js and Angular
+
+</li>
+
+</ul>
+
+<div class="role">
+
+Key Contributions
+
+</div>
+
+<ul>
+
+<li>
+
+<strong>Apex Development & Automation</strong>
+
+<p>
+
+Created custom Apex Classes,
+bulkified Apex Triggers and
+Invocable Actions to automate
+complex document management
+business rules while improving
+data integrity and reducing manual
+processing effort.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Lightning Flows &
+Lightning Web Components (LWC)</strong>
+
+<p>
+
+Implemented scalable Flow
+automation and reusable LWC
+components for document
+management, dynamic filtering,
+optimized file operations and
+workflow automation.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Angular UI Integration</strong>
+
+<p>
+
+Integrated Angular applications
+inside Lightning Web Components
+using iframe communication and
+the postMessage API to provide
+secure interaction between
+Salesforce and external user
+interfaces.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Document Generation Platform</strong>
+
+<p>
+
+Developed scalable Apex services
+and Invocable Actions integrating
+Node.js modules for document
+generation, email automation,
+DocuSign and Adobe Sign.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>External Integrations &
+REST APIs</strong>
+
+<p>
+
+Built secure REST API endpoints
+for integrations with
+
+Google Drive,
+
+SharePoint,
+
+AWS S3,
+
+Azure Blob Storage,
+
+and Salesforce Files.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Connection Management</strong>
+
+<p>
+
+Implemented OAuth 2.0,
+Personal Access Token (PAT),
+AWS Signature Version 4 and
+Azure SAS authentication with
+secure credential management,
+token refresh handling,
+connection monitoring and
+storage profile switching.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Packaging &
+Release Management</strong>
+
+<p>
+
+Released Salesforce applications
+using Second Generation
+Packaging (2GP), streamlining
+version management,
+enterprise deployment and
+AppExchange distribution.
+
+</p>
+
+</li>
+
+</ul>
+
+<!-- =====================================================
+SECOND PROJECT
+===================================================== -->
+
+<div class="project">
+
+Project : Nokodr
+
+</div>
+
+<p>
+
+Nokodr is a low-code Salesforce platform
+that enables users to rapidly build scalable,
+configurable business applications using
+drag-and-drop capabilities and reusable
+components.
+
+</p>
+
+<div class="role">
+
+Key Contributions
+
+</div>
+
+<ul>
+
+<li>
+
+<strong>Apex Development &
+Automation</strong>
+
+<p>
+
+Developed scalable Apex Classes,
+Triggers and custom REST APIs to
+automate business logic across
+multiple Salesforce applications.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Lightning Web Components</strong>
+
+<p>
+
+Designed reusable SLDS-based
+Lightning Web Components for
+responsive, configurable and
+user-friendly application
+development.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Integration &
+Post Install Configuration</strong>
+
+<p>
+
+Integrated Salesforce with
+external applications using
+OAuth 2.0 and REST APIs.
+
+Implemented post-install
+automation scripts for
+Remote Site Settings and
+default endpoint creation.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Packaging,
+Deployment &
+Testing</strong>
+
+<p>
+
+Packaged the solution using
+Second Generation Packaging
+(2GP), ensured AppExchange
+readiness and improved code
+coverage through optimized
+unit testing.
+
+</p>
+
+</li>
+
+</ul>
+
+<!-- Continue with Project: PWR Commons in Part 3 -->
+
+<!-- =====================================================
+PROJECT : PWR COMMONS
+===================================================== -->
+
+<div class="project">
+
+Project : PWR Commons
+
+</div>
+
+<p>
+
+PWR Commons is a reusable Salesforce utility package
+that provides common Apex services, reusable Lightning
+components, shared configurations, and utility
+frameworks for all PWR products.
+
+</p>
+
+<div class="role">
+
+Key Contributions
+
+</div>
+
+<ul>
+
+<li>
+
+<strong>Reusable Apex Framework</strong>
+
+<p>
+
+Designed reusable Apex services,
+trigger frameworks and utility
+classes to standardize application
+development across multiple
+Salesforce products while reducing
+development effort.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Dynamic Lightning Web Components</strong>
+
+<p>
+
+Built reusable Lightning Web
+Components integrated with
+Salesforce Tooling API and REST
+services to enable metadata-driven
+enterprise applications.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>SOQL / SOSL Optimization</strong>
+
+<p>
+
+Created highly optimized and
+bulkified SOQL and SOSL queries
+to improve transaction performance,
+reduce governor limit consumption
+and support scalable processing.
+
+</p>
+
+</li>
+
+<li>
+
+<strong>Packaging &
+Deployment</strong>
+
+<p>
+
+Packaged reusable applications
+using Second Generation Packaging
+(2GP), simplifying enterprise
+deployment, version management
+and customer upgrades.
+
+</p>
+
+</li>
+
+</ul>
+
+</section>
+
+<!-- =====================================================
+TECHNICAL SKILLS
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+Technical Skills
+
+</div>
+
+<div class="skills-grid">
+
+<div>
+
+<ul>
+
+<li>Apex Programming</li>
+
+<li>Lightning Web Components</li>
+
+<li>Apex Triggers</li>
+
+<li>Lightning Flows</li>
+
+<li>SOQL</li>
+
+<li>SOSL</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<ul>
+
+<li>REST API Integration</li>
+
+<li>Angular Framework</li>
+
+<li>GitHub</li>
+
+<li>GitLab</li>
+
+<li>JIRA</li>
+
+<li>Workbench</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div style="height:8px;"></div>
+
+<div class="skills-grid">
+
+<div>
+
+<ul>
+
+<li>SFDX</li>
+
+<li>Change Sets</li>
+
+<li>Deployment</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<ul>
+
+<li>Data Loader</li>
+
+<li>Data Import Wizard</li>
+
+<li>2GP Managed Packages</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+EDUCATION
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+Education
+
+</div>
+
+<div class="company-row">
+
+<div class="company">
+
+Post Graduation Diploma in Advanced Computing (PG-DAC)
+
+</div>
+
+<div class="duration">
+
+Oct 2022
+
+</div>
+
+</div>
+
+<p>
+
+Infoway Technologies, Pune
+
+</p>
+
+<br>
+
+<div class="company-row">
+
+<div class="company">
+
+Bachelor of Engineering
+
+</div>
+
+<div class="duration">
+
+July 2019
+
+</div>
+
+</div>
+
+<p>
+
+Annasaheb Dange College of Engineering
+and Technology, Ashta
+
+</p>
+
+<br>
+
+<div class="company-row">
+
+<div class="company">
+
+Diploma
+
+</div>
+
+<div class="duration">
+
+May 2015
+
+</div>
+
+</div>
+
+<p>
+
+Padmabhooshan Vasantraodada Patil
+Institute of Technology,
+Budhgaon, Sangli
+
+</p>
+
+<br>
+
+<div class="company-row">
+
+<div class="company">
+
+SSC
+
+</div>
+
+<div class="duration">
+
+May 2013
+
+</div>
+
+</div>
+
+<p>
+
+Karmaveer Bhaurao Patil Vidyalaya,
+Mhaisal
+
+</p>
+
+</section>
+
+<!-- =====================================================
+CERTIFICATIONS
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+Certifications
+
+</div>
+
+<ul>
+
+<li>
+
+Salesforce Certified JavaScript Developer I (2025)
+
+</li>
+
+<li>
+
+Salesforce Certified Platform Developer I (2023)
+
+</li>
+
+<li>
+
+Salesforce Certified Platform Administrator (2025)
+
+</li>
+
+<li>
+
+Salesforce Certified AI Specialist (2025)
+
+</li>
+
+</ul>
+
+</section>
+
+<!-- =====================================================
+EXPORT BUTTONS
+Part 3B starts from here
+===================================================== -->
+
+<!-- =====================================================
+EXPORT ACTIONS
+===================================================== -->
+
+<div class="actions no-print">
+
+    <button id="btnPrint">
+        🖨 Export PDF
+    </button>
+
+    <button id="btnWord">
+        📄 Export DOCX
+    </button>
+
+</div>
+
+</div>
+<!-- END resume-page -->
+
+<script>
+
+/*=========================================================
+ATS VALIDATION
+=========================================================*/
+
+function validateResume(){
+
+    const errors=[];
+
+    if(document.querySelectorAll("h1").length!==1)
+        errors.push("Resume should contain exactly one H1.");
+
+    if(document.querySelectorAll("section").length===0)
+        errors.push("No section tags found.");
+
+    if(document.body.innerText.trim().length<500)
+        errors.push("Resume content looks incomplete.");
+
+    if(document.querySelectorAll("img").length>1)
+        errors.push("Too many images may reduce ATS compatibility.");
+
+    if(errors.length===0){
+
+        console.log("ATS Validation : PASSED");
+
+    }else{
+
+        console.warn(errors);
+
+    }
+
+}
+
+validateResume();
+
+/*=========================================================
+EXPORT PDF
+=========================================================*/
+
+document
+.getElementById("btnPrint")
+.addEventListener("click",function(){
+
+    window.print();
+
+});
+
+/*=========================================================
+INLINE STYLE CONVERTER
+Used before DOC export
+=========================================================*/
+
+function inlineStyles(element){
+
+    const computed=getComputedStyle(element);
+
+    let style="";
+
+    for(const property of computed){
+
+        style+=property+":"+computed.getPropertyValue(property)+";";
+
+    }
+
+    element.setAttribute("style",style);
+
+    [...element.children].forEach(inlineStyles);
+
+}
+
+/*=========================================================
+REMOVE CSS NOT SUPPORTED BY WORD
+=========================================================*/
+
+function cleanupWordHtml(node){
+
+    node.querySelectorAll("*").forEach(el=>{
+
+        el.style.boxShadow="none";
+        el.style.filter="none";
+        el.style.transform="none";
+        el.style.transition="none";
+        el.style.animation="none";
+        el.style.backgroundImage="none";
+
+    });
+
+}
+
+/*=========================================================
+CREATE WORD FRIENDLY HTML
+=========================================================*/
+
+function buildWordHtml(){
+
+    const clone=document
+        .getElementById("resume")
+        .cloneNode(true);
+
+    inlineStyles(clone);
+
+    cleanupWordHtml(clone);
+
+    return `
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<title>Resume</title>
+
+<style>
+
+body{
+
+font-family:Calibri,Arial,sans-serif;
+
+margin:20px;
+
+font-size:11pt;
+
+line-height:1.35;
+
+color:#111;
+
+}
+
+a{
+
+color:#111;
+
+text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+${clone.outerHTML}
+
+</body>
+
+</html>
+`;
+
+}
+
+/*=========================================================
+DOC EXPORT
+
+NOTE:
+
+html-docx-js library should be added
+before this script.
+
+=========================================================*/
+
+document
+.getElementById("btnWord")
+.addEventListener("click",function(){
+
+    if(typeof htmlDocx==="undefined"){
+
+        alert(
+
+"html-docx-js library not found.\n\nInclude\nhtml-docx.js\nbefore using Word export."
+
+        );
+
+        return;
+
+    }
+
+    const html=buildWordHtml();
+
+    const blob=htmlDocx.asBlob(html);
+
+    const link=document.createElement("a");
+
+    link.href=URL.createObjectURL(blob);
+
+    link.download="Akshay_Shinde_Resume.docx";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+});
+
+/*=========================================================
+OPTIONAL
+
+Ctrl + P
+
+=========================================================*/
+
+document.addEventListener("keydown",function(e){
+
+    if(e.ctrlKey && e.key==="p"){
+
+        e.preventDefault();
+
+        window.print();
+
+    }
+
+});
+
+/*=========================================================
+AUTO YEAR
+
+=========================================================*/
+
+console.log("Resume Loaded");
+
+</script>
+
+</body>
+
+</html>

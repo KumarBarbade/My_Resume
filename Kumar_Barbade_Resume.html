@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Kumar Barbade - Resume</title>
+  <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.js"></script>
   <style>
     :root {
@@ -681,16 +683,535 @@
     </html>`;
     }
 
-    function downloadDocx() {
-      const html = createWordFriendlyHtml();
-      if (typeof htmlDocx !== 'undefined' && htmlDocx.asBlob) {
-        const blob = htmlDocx.asBlob(html);
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = "Kumar_Barbade_Resume.docx";
-        a.click();
+    async function getImageArrayBuffer(imgSrc) {
+      if (!imgSrc) return null;
+      try {
+        const res = await fetch(imgSrc);
+        if (res.ok) {
+          const buf = await res.arrayBuffer();
+          if (buf && buf.byteLength > 0) return buf;
+        }
+      } catch (e) {}
+
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.onload = () => {
+          try {
+            const canvas = document.createElement("canvas");
+            canvas.width = img.naturalWidth || 160;
+            canvas.height = img.naturalHeight || 160;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+            canvas.toBlob(async (blob) => {
+              if (blob) {
+                const buf = await blob.arrayBuffer();
+                resolve(buf);
+              } else {
+                resolve(null);
+              }
+            }, "image/jpeg");
+          } catch (err) {
+            resolve(null);
+          }
+        };
+        img.onerror = () => resolve(null);
+        img.src = imgSrc;
+      });
+    }
+
+    function parseHtmlToTextRuns(htmlOrNode, defaultStyle = {}) {
+      let tempDiv;
+      if (typeof htmlOrNode === "string") {
+        tempDiv = document.createElement("div");
+        tempDiv.innerHTML = htmlOrNode;
+      } else if (htmlOrNode instanceof Node) {
+        tempDiv = document.createElement("div");
+        tempDiv.appendChild(htmlOrNode.cloneNode(true));
       } else {
-        console.error("htmlDocx library is not loaded.");
+        return [new docx.TextRun({ text: "", font: "Calibri", ...defaultStyle })];
+      }
+
+      const runs = [];
+      const baseFont = defaultStyle.font || "Calibri";
+      const baseSize = defaultStyle.size || 21; // 10.5pt
+      const baseColor = defaultStyle.color || "2B2B2B";
+
+      function walk(node, isBold = false, isItalic = false, isLink = false, linkHref = "") {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent;
+          if (text) {
+            runs.push(
+              new docx.TextRun({
+                text: text,
+                bold: isBold || defaultStyle.bold || false,
+                italic: isItalic || defaultStyle.italic || false,
+                font: baseFont,
+                size: baseSize,
+                color: isLink ? "1B6EC2" : (defaultStyle.color || baseColor),
+                underline: isLink ? { type: docx.UnderlineType.SINGLE } : undefined
+              })
+            );
+          }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const tag = node.tagName.toLowerCase();
+          const bold = isBold || tag === "b" || tag === "strong";
+          const italic = isItalic || tag === "i" || tag === "em";
+          const link = isLink || tag === "a";
+          const href = tag === "a" ? node.getAttribute("href") || "" : linkHref;
+
+          for (const child of node.childNodes) {
+            walk(child, bold, italic, link, href);
+          }
+        }
+      }
+
+      walk(tempDiv);
+      return runs.length > 0
+        ? runs
+        : [new docx.TextRun({ text: tempDiv.textContent || "", font: baseFont, size: baseSize, color: baseColor })];
+    }
+
+    function createDocxSectionTitle(titleText, iconText = "", isSidebar = false) {
+      return new docx.Paragraph({
+        spacing: { before: isSidebar ? 200 : 260, after: 100 },
+        border: {
+          bottom: {
+            style: docx.BorderStyle.SINGLE,
+            size: isSidebar ? 4 : 6,
+            color: isSidebar ? "D3D9DF" : "CCCCCC",
+            space: 4
+          }
+        },
+        children: [
+          new docx.TextRun({
+            text: (iconText ? iconText + " " : "") + titleText,
+            bold: true,
+            size: isSidebar ? 22 : 24, // 11pt vs 12pt
+            color: "1A2530",
+            font: "Calibri"
+          })
+        ]
+      });
+    }
+
+    async function buildDocxFromDOM() {
+      const sidebarChildren = [];
+      const mainChildren = [];
+
+      // --- SIDEBAR CONTENT ---
+      const sidebarEl = document.querySelector(".sidebar");
+      if (sidebarEl) {
+        // 1. Photo
+        const photoImg = sidebarEl.querySelector(".photo-wrap img");
+        if (photoImg) {
+          const imgSrc = photoImg.getAttribute("src");
+          const imgBuffer = await getImageArrayBuffer(imgSrc);
+          if (imgBuffer) {
+            sidebarChildren.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.CENTER,
+                spacing: { before: 0, after: 180 },
+                children: [
+                  new docx.ImageRun({
+                    data: imgBuffer,
+                    transformation: { width: 110, height: 110 }
+                  })
+                ]
+              })
+            );
+          }
+        }
+
+        // 2. Contact List
+        const contactLis = sidebarEl.querySelectorAll(".contact-list li");
+        contactLis.forEach((li) => {
+          const iconSpan = li.querySelector(".icon");
+          const textSpan = li.querySelector("span:not(.icon)");
+          const aTag = li.querySelector("a");
+
+          const iconText = iconSpan ? iconSpan.textContent.trim() : "";
+          let contentNode = aTag || textSpan || li;
+
+          sidebarChildren.push(
+            new docx.Paragraph({
+              spacing: { before: 30, after: 30, line: 240 },
+              children: [
+                new docx.TextRun({
+                  text: iconText + "  ",
+                  font: "Calibri",
+                  size: 20,
+                  color: "2B2B2B"
+                }),
+                ...parseHtmlToTextRuns(contentNode, { size: 20, color: "2B2B2B" })
+              ]
+            })
+          );
+        });
+
+        // 3. Blocks in Sidebar (Key Skills, Certifications, Languages, Personal Info)
+        const blocks = sidebarEl.querySelectorAll(".block");
+        blocks.forEach((block) => {
+          const titleEl = block.querySelector(".side-section-title");
+          if (titleEl) {
+            const iconEl = titleEl.querySelector(".dot-icon");
+            const iconText = iconEl ? iconEl.textContent.trim() : "";
+            const fullTitle = titleEl.textContent.replace(iconText, "").trim();
+            sidebarChildren.push(createDocxSectionTitle(fullTitle, iconText, true));
+          }
+
+          // Category Titles + Pill Wraps
+          const subHeadings = block.querySelectorAll(".sidebar-text");
+          if (subHeadings.length > 0) {
+            subHeadings.forEach((sub) => {
+              // Heading
+              sidebarChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 120, after: 40 },
+                  children: parseHtmlToTextRuns(sub, { size: 20, bold: true, color: "2B2B2B" })
+                })
+              );
+
+              // Next sibling might be pill-wrap
+              const nextElem = sub.nextElementSibling;
+              if (nextElem && nextElem.classList.contains("pill-wrap")) {
+                const pills = nextElem.querySelectorAll(".pill");
+                const pillRuns = [];
+                pills.forEach((pill, idx) => {
+                  pillRuns.push(
+                    new docx.TextRun({
+                      text: " " + pill.textContent.trim() + " ",
+                      size: 18,
+                      font: "Calibri",
+                      color: "2B2B2B",
+                      shading: { fill: "DEE2E6" }
+                    })
+                  );
+                  if (idx < pills.length - 1) {
+                    pillRuns.push(new docx.TextRun({ text: "  ", size: 18 }));
+                  }
+                });
+                sidebarChildren.push(
+                  new docx.Paragraph({
+                    spacing: { before: 40, after: 100, line: 260 },
+                    children: pillRuns
+                  })
+                );
+              }
+            });
+          }
+
+          // Certifications list
+          const certLis = block.querySelectorAll(".cert-list li");
+          certLis.forEach((li) => {
+            sidebarChildren.push(
+              new docx.Paragraph({
+                bullet: { level: 0 },
+                spacing: { before: 30, after: 30, line: 240 },
+                children: parseHtmlToTextRuns(li, { size: 19, color: "2B2B2B" })
+              })
+            );
+          });
+
+          // Personal Info spaced
+          const spacedEl = block.querySelector(".sidebar-text-spaced");
+          if (spacedEl) {
+            const lines = spacedEl.innerHTML.split(/<br\s*\/?>/i);
+            lines.forEach((line) => {
+              if (line.trim()) {
+                sidebarChildren.push(
+                  new docx.Paragraph({
+                    spacing: { before: 30, after: 30, line: 240 },
+                    children: parseHtmlToTextRuns(line, { size: 20, color: "2B2B2B" })
+                  })
+                );
+              }
+            });
+          }
+        });
+      }
+
+      // --- MAIN CONTENT ---
+      const mainEl = document.querySelector(".main");
+      if (mainEl) {
+        // Header band
+        const h1 = mainEl.querySelector(".header-band h1");
+        const role = mainEl.querySelector(".header-band .role");
+
+        if (h1) {
+          mainChildren.push(
+            new docx.Paragraph({
+              spacing: { before: 0, after: 40 },
+              children: [
+                new docx.TextRun({
+                  text: h1.textContent.trim(),
+                  bold: true,
+                  size: 38, // 19pt
+                  color: "1A2530",
+                  font: "Calibri"
+                })
+              ]
+            })
+          );
+        }
+        if (role) {
+          mainChildren.push(
+            new docx.Paragraph({
+              spacing: { before: 0, after: 200 },
+              children: [
+                new docx.TextRun({
+                  text: role.textContent.trim(),
+                  size: 26, // 13pt
+                  color: "5B6472",
+                  font: "Calibri"
+                })
+              ]
+            })
+          );
+        }
+
+        // Main Sections
+        const sections = mainEl.querySelectorAll(".section");
+        sections.forEach((sec) => {
+          const titleEl = sec.querySelector(".section-title");
+          if (titleEl) {
+            const iconEl = titleEl.querySelector(".sq-icon");
+            const iconText = iconEl ? iconEl.textContent.trim() : "";
+            const fullTitle = titleEl.textContent.replace(iconText, "").trim();
+            mainChildren.push(createDocxSectionTitle(fullTitle, iconText, false));
+          }
+
+          // Profile text
+          const profText = sec.querySelector(".profile-text");
+          if (profText) {
+            mainChildren.push(
+              new docx.Paragraph({
+                spacing: { before: 60, after: 120, line: 260 },
+                children: parseHtmlToTextRuns(profText, { size: 21, color: "2B2B2B" })
+              })
+            );
+          }
+
+          // Education items
+          const eduItems = sec.querySelectorAll(".edu-item");
+          eduItems.forEach((edu) => {
+            const eduDate = edu.querySelector(".edu-date");
+            const eduDegree = edu.querySelector(".edu-degree");
+            const eduSchool = edu.querySelector(".edu-school");
+
+            if (eduDate) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 80, after: 20 },
+                  children: [
+                    new docx.TextRun({
+                      text: eduDate.textContent.trim(),
+                      size: 18,
+                      color: "5B6472",
+                      font: "Calibri"
+                    })
+                  ]
+                })
+              );
+            }
+            if (eduDegree) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 0, after: 20 },
+                  children: parseHtmlToTextRuns(eduDegree, { size: 22, bold: true, color: "1A2530" })
+                })
+              );
+            }
+            if (eduSchool) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 0, after: 100 },
+                  children: parseHtmlToTextRuns(eduSchool, { size: 20, color: "2B2B2B" })
+                })
+              );
+            }
+          });
+
+          // Job items
+          const jobItems = sec.querySelectorAll(".job");
+          jobItems.forEach((job) => {
+            const jobDate = job.querySelector(".job-date");
+            const jobTitle = job.querySelector(".job-title");
+            const jobComp = job.querySelector(".job-company");
+            const kraLabel = job.querySelector(".kra-label");
+
+            if (jobDate) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 100, after: 20 },
+                  children: [
+                    new docx.TextRun({
+                      text: jobDate.textContent.trim(),
+                      size: 18,
+                      color: "5B6472",
+                      font: "Calibri"
+                    })
+                  ]
+                })
+              );
+            }
+            if (jobTitle) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 0, after: 20 },
+                  children: parseHtmlToTextRuns(jobTitle, { size: 22, bold: true, color: "1A2530" })
+                })
+              );
+            }
+            if (jobComp) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 0, after: 40 },
+                  children: parseHtmlToTextRuns(jobComp, { size: 20, bold: true, color: "2F4F4F" })
+                })
+              );
+            }
+            if (kraLabel) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 40, after: 40 },
+                  children: [
+                    new docx.TextRun({
+                      text: kraLabel.textContent.trim(),
+                      size: 18,
+                      bold: true,
+                      color: "5B6472",
+                      font: "Calibri"
+                    })
+                  ]
+                })
+              );
+            }
+
+            const bullets = job.querySelectorAll("ul.bullets li");
+            bullets.forEach((li) => {
+              mainChildren.push(
+                new docx.Paragraph({
+                  bullet: { level: 0 },
+                  spacing: { before: 30, after: 30, line: 250 },
+                  children: parseHtmlToTextRuns(li, { size: 20, color: "2B2B2B" })
+                })
+              );
+            });
+          });
+
+          // Project items
+          const projItems = sec.querySelectorAll(".proj-item");
+          projItems.forEach((proj) => {
+            const projTitle = proj.querySelector(".proj-title");
+            if (projTitle) {
+              mainChildren.push(
+                new docx.Paragraph({
+                  spacing: { before: 100, after: 40 },
+                  children: parseHtmlToTextRuns(projTitle, { size: 21, bold: true, color: "1A2530" })
+                })
+              );
+            }
+            const bullets = proj.querySelectorAll("ul.bullets li");
+            bullets.forEach((li) => {
+              mainChildren.push(
+                new docx.Paragraph({
+                  bullet: { level: 0 },
+                  spacing: { before: 30, after: 30, line: 250 },
+                  children: parseHtmlToTextRuns(li, { size: 20, color: "2B2B2B" })
+                })
+              );
+            });
+          });
+        });
+      }
+
+      // Create 2-column Table layout for DOCX
+      const table = new docx.Table({
+        width: { size: 100, type: docx.WidthType.PERCENTAGE },
+        borders: {
+          top: { style: docx.BorderStyle.NONE, size: 0, color: "AUTO" },
+          bottom: { style: docx.BorderStyle.NONE, size: 0, color: "AUTO" },
+          left: { style: docx.BorderStyle.NONE, size: 0, color: "AUTO" },
+          right: { style: docx.BorderStyle.NONE, size: 0, color: "AUTO" },
+          insideHorizontal: { style: docx.BorderStyle.NONE, size: 0, color: "AUTO" },
+          insideVertical: { style: docx.BorderStyle.NONE, size: 0, color: "AUTO" }
+        },
+        rows: [
+          new docx.TableRow({
+            children: [
+              new docx.TableCell({
+                width: { size: 34, type: docx.WidthType.PERCENTAGE },
+                shading: { fill: "F1F3F5" },
+                margins: { top: 240, bottom: 240, left: 240, right: 200 },
+                verticalAlign: docx.VerticalAlign.TOP,
+                children: sidebarChildren
+              }),
+              new docx.TableCell({
+                width: { size: 66, type: docx.WidthType.PERCENTAGE },
+                shading: { fill: "FFFFFF" },
+                margins: { top: 240, bottom: 240, left: 280, right: 240 },
+                verticalAlign: docx.VerticalAlign.TOP,
+                children: mainChildren
+              })
+            ]
+          })
+        ]
+      });
+
+      return new docx.Document({
+        sections: [
+          {
+            properties: {
+              page: {
+                margin: {
+                  top: 720,
+                  bottom: 720,
+                  left: 720,
+                  right: 720
+                }
+              }
+            },
+            children: [table]
+          }
+        ]
+      });
+    }
+
+    async function downloadDocx() {
+      if (typeof docx !== 'undefined') {
+        try {
+          const doc = await buildDocxFromDOM();
+          const blob = await docx.Packer.toBlob(doc);
+          if (typeof saveAs !== 'undefined') {
+            saveAs(blob, "Kumar_Barbade_Resume.docx");
+          } else {
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "Kumar_Barbade_Resume.docx";
+            a.click();
+            setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+          }
+          return;
+        } catch (err) {
+          console.error("Error generating native DOCX via docx.js, falling back to htmlDocx:", err);
+        }
+      }
+
+      if (typeof htmlDocx !== 'undefined' && htmlDocx.asBlob) {
+        const html = createWordFriendlyHtml();
+        const blob = htmlDocx.asBlob(html);
+        if (typeof saveAs !== 'undefined') {
+          saveAs(blob, "Kumar_Barbade_Resume.docx");
+        } else {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = "Kumar_Barbade_Resume.docx";
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+        }
+      } else {
+        console.error("Neither docx nor htmlDocx library is loaded.");
       }
     }
 

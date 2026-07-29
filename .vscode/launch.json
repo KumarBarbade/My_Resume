@@ -1,0 +1,65 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Current Active HTML File (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${file}"
+    },
+    {
+      "name": "Debug ChatgptCodeOpti.html (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/ChatgptCodeOpti.html"
+    },
+    {
+      "name": "Debug GeminiResume.html (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/GeminiResume.html"
+    },
+    {
+      "name": "Debug KumarRes.html (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/KumarRes.html"
+    },
+    {
+      "name": "Debug Kumar_Barbade_Resume.html (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/Kumar_Barbade_Resume.html"
+    },
+    // {
+    //   "name": "Debug Current Active HTML File (Edge)",
+    //   "type": "msedge",
+    //   "request": "launch",
+    //   "file": "${file}"
+    // },
+    // {
+    //   "name": "Debug ChatgptCodeOpti.html (Edge)",
+    //   "type": "msedge",
+    //   "request": "launch",
+    //   "file": "${workspaceFolder}/ChatgptCodeOpti.html"
+    // },
+    // {
+    //   "name": "Debug GeminiResume.html (Edge)",
+    //   "type": "msedge",
+    //   "request": "launch",
+    //   "file": "${workspaceFolder}/GeminiResume.html"
+    // },
+    // {
+    //   "name": "Debug KumarRes.html (Edge)",
+    //   "type": "msedge",
+    //   "request": "launch",
+    //   "file": "${workspaceFolder}/KumarRes.html"
+    // },
+    // {
+    //   "name": "Debug Kumar_Barbade_Resume.html (Edge)",
+    //   "type": "msedge",
+    //   "request": "launch",
+    //   "file": "${workspaceFolder}/Kumar_Barbade_Resume.html"
+    // }
+  ]
+}

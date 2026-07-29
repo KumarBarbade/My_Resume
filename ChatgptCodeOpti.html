@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Professional Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: #ececec;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            color: #111;
+            font-size: 11pt;
+            line-height: 1.35
+        }
+
+        :root {
+            --page-width: 210mm;
+            --page-height: 297mm;
+            --page-bg: #fff;
+            --text: #111;
+            --heading: #000;
+            --line: #444;
+            --margin-left: 16mm;
+            --margin-right: 16mm;
+            --margin-top: 14mm;
+            --margin-bottom: 15mm;
+            --section-gap: 14px;
+            --paragraph-gap: 5px;
+            --heading-size: 13pt;
+            --body-size: 10.5pt;
+            --name-size: 24pt
+        }
+
+        .resume-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #fff;
+            margin: 12mm auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .18);
+            padding: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left)
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm
+        }
+
+        @media print {
+            body {
+                background: #fff
+            }
+
+            .resume-page {
+                margin: 0;
+                width: 100%;
+                min-height: auto;
+                box-shadow: none;
+                padding: 0
+            }
+
+            .no-print {
+                display: none !important
+            }
+        }
+
+        h1 {
+            font-size: 24pt;
+            font-weight: 700;
+            letter-spacing: .3px;
+            text-align: center;
+            color: #111;
+            margin-bottom: 5px
+        }
+
+        .contact {
+            font-size: 10.5pt;
+            text-align: center;
+            margin-bottom: 14px
+        }
+
+        .contact a {
+            color: #111;
+            text-decoration: none
+        }
+
+        .contact span {
+            margin: 0 5px
+        }
+
+        .section {
+            margin-top: 16px
+        }
+
+        .section-title {
+            font-size: 13pt;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #444;
+            margin-bottom: 8px
+        }
+
+        .section p {
+            font-size: 10.5pt;
+            text-align: justify;
+            margin-bottom: 5px
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 5px
+        }
+
+        li {
+            margin-bottom: 4px;
+            line-height: 1.35
+        }
+
+        .company-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 8px 0
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 11pt
+        }
+
+        .duration {
+            font-weight: 700;
+            font-size: 10.5pt;
+            white-space: nowrap
+        }
+
+        .project {
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+        .role {
+            font-style: italic;
+            margin-bottom: 6px
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 20px;
+            row-gap: 4px
+        }
+
+        .actions {
+            margin: 30px auto;
+            text-align: center
+        }
+
+        .actions button {
+            padding: 10px 22px;
+            margin: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            background: #222;
+            color: #fff;
+            border-radius: 4px;
+            transition: .2s
+        }
+
+        .actions button:hover {
+            background: #000
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-page" id="resume">
+        <header>
+            <h1>AKSHAY SHINDE</h1>
+            <div class="contact"><a href="tel:+917767882400">+91 7767882400</a><span>|</span><a
+                    href="mailto:akshinde331@gmail.com">akshinde331@gmail.com</a><span>|</span><a href="#">LinkedIn</a>
+            </div>
+        </header>
+        <section class="section">
+            <div class="section-title">Professional Summary</div>
+            <p>Certified Salesforce Developer with 3.2+ years of experience designing and delivering scalable solutions
+                on the Salesforce Platform. Skilled in Apex, Lightning Web Components (LWC), Lightning Flows,
+                asynchronous Apex, REST API integrations, AppExchange application development and managed package
+                development.</p>
+            <p>Hands-on experience in building secure, high-performance, maintainable enterprise applications with
+                strong focus on code quality, reusable architecture, testing and platform best practices.</p>
+        </section>
+        <section class="section">
+            <div class="section-title">Key Achievements</div>
+            <ul>
+                <li><strong>Boosted Efficiency</strong><br>Improved document management efficiency by 30% through custom
+                    Apex developments.</li>
+                <li><strong>Reduced Errors</strong><br>Reduced integration errors by 25% with enhanced REST API
+                    endpoints.</li>
+                <li><strong>Enhanced Scalability</strong><br>Increased application scalability by 40% using reusable
+                    Lightning Components.</li>
+                <li><strong>AppExchange Readiness</strong><br>Achieved 99% AppExchange readiness with optimized managed
+                    packages.</li>
+            </ul>
+        </section>
+        <section class="section">
+            <div class="section-title">Professional Experience</div>
+            <div class="company-row">
+                <div class="company">Enzigma Solutions LLP, Pune</div>
+                <div class="duration">March 2023 – Present</div>
+            </div>
+            <div class="project">Project : docuWeaver</div>
+            <p>docuWeaver is a Salesforce-native Second Generation Packaging (2GP) managed package for document
+                management and document generation. The platform supports multiple cloud storage providers and advanced
+                automation workflows.</p>
+            <p>The application consists of two primary modules:</p>
+            <ul>
+                <li>Document Management</li>
+                <li>Document Generation using Node.js and Angular</li>
+            </ul>
+            <div class="role">Key Contributions</div>
+            <ul>
+                <li><strong>Apex Development &amp; Automation</strong>
+                    <p>Created custom Apex Classes, bulkified Apex Triggers and Invocable Actions to automate complex
+                        document management business rules while improving data integrity and reducing manual processing
+                        effort.</p>
+                </li>
+                <li><strong>Lightning Flows &amp; Lightning Web Components (LWC)</strong>
+                    <p>Implemented scalable Flow automation and reusable LWC components for document management, dynamic
+                        filtering, optimized file operations and workflow automation.</p>
+                </li>
+                <li><strong>Angular UI Integration</strong>
+                    <p>Integrated Angular applications inside Lightning Web Components using iframe communication and
+                        the postMessage API to provide secure interaction between Salesforce and external user
+                        interfaces.</p>
+                </li>
+                <li><strong>Document Generation Platform</strong>
+                    <p>Developed scalable Apex services and Invocable Actions integrating Node.js modules for document
+                        generation
