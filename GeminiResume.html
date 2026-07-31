@@ -121,13 +121,20 @@
             font-size: 11pt;
         }
 
-        /* Export Button Styles - Kept at the Next Page */
+        /* Export Button & Validation Styles - Kept at the Next Page */
         .no-print {
             text-align: center;
             margin: 40px auto;
             padding-top: 20px;
             page-break-before: always;
             break-before: page;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .button-group {
             display: flex;
             justify-content: center;
             gap: 15px;
@@ -149,6 +156,29 @@
             background-color: #003d82;
         }
 
+        .validation-box {
+            max-width: 600px;
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .validation-success {
+            background-color: #e6f4ea;
+            color: #137333;
+            border: 1px solid #ceead6;
+        }
+
+        .validation-warning {
+            background-color: #fef7e0;
+            color: #b06000;
+            border: 1px solid #feefc3;
+        }
+
         /* Hide buttons during PDF print/export */
         @media print {
             .no-print {
@@ -163,8 +193,8 @@
 
             #resume-content {
                 box-shadow: none;
-                padding: 0;
-                /* border: 1px solid #111111; */
+                padding: 40px 35px;
+                /* border: 1px solid #000000; */
             }
         }
     </style>
@@ -176,7 +206,8 @@
         <!-- Contact Information -->
         <div class="contact-info">
             <h1>Kumar Barbade</h1>
-            <p>(+91) 9405841593 | <a href="mailto:kubarbade@gmail.com">kubarbade@gmail.com</a> | <a href="https://www.linkedin.com/in/kumar-barbade-452381166/" target="_blank">LinkedIn</a></p>
+            <p>(+91) 9405841593 | <a href="mailto:kubarbade@gmail.com">kubarbade@gmail.com</a> | <a
+                    href="https://www.linkedin.com/in/kumar-barbade-452381166/" target="_blank">LinkedIn</a></p>
         </div>
 
         <!-- Professional Summary -->
@@ -200,26 +231,29 @@
                 <li>Python</li>
                 <li>FastAPI</li>
                 <li>JavaScript</li>
-                <li>jQuery</li>
                 <li>HTML5 and CSS3</li>
                 <li>Angular 22</li>
-                <li>React 19</li>
-                <li>REST APIs</li>
+               
                 <li>Entity Framework Core</li>
-                <li>LINQ</li>
+                 <li>REST APIs</li>
                 <li>Design Patterns</li>
                 <li>Dependency Injection</li>
                 <li>Microservices</li>
-                <li>Google Cloud Firestore</li>
+                <li>Cloud Firestore</li>
                 <li>Google Cloud Platform</li>
                 <li>Azure Cloud</li>
-                <li>Git</li>
-                <li>Jenkins CI/CD</li>
+                <li>Jira and Git</li>
                 <li>OOPS</li>
-                <li>SDLC</li>
+             
                 <li>Agile Scrum</li>
+                <li>SDLC</li>
                 <li>Multithreading</li>
                 <li>HL7</li>
+                <li>EHR Integration</li>
+                <li>ChatGPT</li>
+                <li>Gemini</li>
+                <li>GitHub Copilot</li>
+                <li>Claude</li>
             </ul>
         </div>
 
@@ -231,21 +265,18 @@
             <span>Aug 2025 - Present</span>
         </div>
         <ul>
-            <li>Designed and developed <strong>full-stack healthcare applications</strong> using <strong>ASP.NET Core,
-MySQL</strong>, and <strong>RESTful APIs</strong>, delivering scalable and maintainable
-                enterprise solutions.</li>
+            <li>Designed and developed <strong>full-stack healthcare applications</strong> integrated with
+                <strong>Electronic Health Records (EHR)</strong> using <strong>ASP.NET Core, MySQL</strong>, delivering
+                scalable and maintainable enterprise solutions.</li>
 
             <li>Built <strong>Python FastAPI microservices</strong> integrated with <strong>Google Cloud
-                    Firestore</strong>, enabling cloud-native healthcare data processing and seamless system
-                integration.</li>
+                    Firestore</strong> to enable cloud-native <strong>Healthcare Data Integration</strong> and real-time
+                healthcare data processing.</li>
 
-            <li>Developed secure backend services using <strong>Object-Oriented Programming (OOP)</strong>,
-                <strong>SOLID principles</strong>, <strong>Dependency Injection</strong>, and <strong>Design
-                    Patterns</strong> to improve maintainability and performance.</li>
+            <!-- <li>Engineered secure backend services adhering for managing <strong>Protected Health Information (PHI)</strong>.</li> -->
 
-            <li>Collaborated with Product Managers, QA, and cross-functional teams in an <strong>Agile/Scrum</strong>
-                environment, participating in sprint planning, code reviews, debugging, and performance optimization to
-                deliver high-quality software.</li>
+            <li>Collaborated with Product Managers, QA, and cross-functional teams in an <strong>Agile environment,
+                    participating in code reviews, debugging, and performance optimization</strong></li>
         </ul>
 
         <div class="section-header">
@@ -253,8 +284,9 @@ MySQL</strong>, and <strong>RESTful APIs</strong>, delivering scalable and maint
             <span>Dec 2022 - Aug 2025</span>
         </div>
         <ul>
-            <li>Developed workflow automation solutions by implementing an automated patient encounter allocation
-                system, <strong>reducing manual effort by 35%</strong> and improving operational efficiency.</li>
+            <li>Implemented <strong>Healthcare Workflow Automation</strong> solutions by developing an automated patient
+                encounter allocation system, <strong>reducing manual effort by 35%</strong> and improving operational
+                efficiency.</li>
 
             <li>Optimized SQL queries, <strong>enhanced database performance</strong>, and resolved production issues
                 through debugging, root cause analysis, and performance tuning.</li>
@@ -262,9 +294,6 @@ MySQL</strong>, and <strong>RESTful APIs</strong>, delivering scalable and maint
             <li>Built a <strong>real-time monitoring dashboard</strong> using <strong>Google Cloud Firestore</strong>,
                 improving operational visibility and supporting data-driven decision-making for Team Leads.</li>
 
-            <li>Upgraded <strong>.NET applications</strong> and <strong>RESTful Web APIs</strong> for seamless
-                compatibility with <strong>MySQL 8.0</strong>, contributing to database optimization, application
-                stability, and performance improvements.</li>
         </ul>
 
         <!-- Key Projects -->
@@ -272,40 +301,37 @@ MySQL</strong>, and <strong>RESTful APIs</strong>, delivering scalable and maint
 
         <div class="sub-header">Pre-Visit Summary of Patient </div>
         <ul>
-            <li>Built a healthcare web application to provide physicians with pre-visit access to patient medical
-                history.
-            </li>
-            <li>Designed responsive user interfaces and <strong>optimized backend APIs</strong> for secure and efficient clinical data
-                retrieval.</li>
+            <li>Built a healthcare web application generating a comprehensive <strong>Clinical Summary</strong> to
+                provide physicians with pre-visit access to patient medical history.</li>
+            <li>Designed responsive user interfaces and <strong>optimized backend APIs</strong> for secure and efficient
+                <strong>Clinical Documentation</strong> retrieval.</li>
         </ul>
 
-        <div class="sub-header">Pull Based Allocation of Appointments </div>
+        <!-- <div class="sub-header">Pull Based Allocation of Appointments </div>
         <ul>
-            <li><strong>Automated encounter allocation</strong> using priority-based queues, improving
-                turnaround time.</li>
-            <li>Enhanced provider workflow efficiency and turnaround times, boosting clinical productivity and revenue.
-            </li>
-        </ul>
+            <li>Automated encounter allocation by processing <strong>Scheduling Information Updates (SIU)</strong> via priority-based queues, improving turnaround time.</li>
+        </ul> -->
 
         <div class="sub-header">Real-Time Scribe Monitoring Dashboard </div>
         <ul>
-            <li>Built a real-time monitoring dashboard, improving operational visibility and reducing manual tracking by
-                40%.</li>
+            <li>Built a real-time monitoring dashboard, improving operational visibility and <strong>reducing manual
+                    tracking by 40%.</strong></li>
             <li>Leveraged Google Cloud Firestore (NoSQL) for dynamic data access to ensure <strong>real-time data
-                synchronization.</strong></li>
+                    synchronization</strong> and <strong>Healthcare Data Integration</strong>.</li>
         </ul>
 
         <div class="sub-header">Database Migration &amp; Performance Optimization </div>
         <ul>
-            <li>Led <strong>MySQL migration from 5.6 to 8.0</strong>, improving database performance, reliability, and scalability.</li>
+            <li>Led <strong>MySQL migration from 5.6 to 8.0</strong>, improving database performance, reliability, and
+                scalability.</li>
             <li>Upgraded MySQL libraries across .NET applications and APIs, ensuring seamless compatibility with MySQL
                 8.0.</li>
         </ul>
 
         <div class="sub-header">Web Portal for Physician To Monitor Appointments </div>
         <ul>
-            <li>Implemented a .NET Core healthcare web application, to <strong>optimize physician documentation
-                workflows </strong>and monitoring patient appointments.</li>
+            <li>Streamlined clinical documentation and patient tracking by <strong>developing a HIPAA-compliant</strong>
+                .NET Core app..</li>
             <li>Enabled PDF generation for chart notes, ensuring accurate, compliant, and easily shareable patient
                 records.</li>
         </ul>
@@ -329,19 +355,38 @@ MySQL</strong>, and <strong>RESTful APIs</strong>, delivering scalable and maint
 
     </div>
 
-    <!-- Export Buttons (Kept at the next page after content ends) -->
+    <!-- Export Buttons & Validation Status (Kept at the next page after content ends) -->
     <div class="no-print">
-        <button class="btn" onclick="exportToPDF()">Export to PDF (ATS Friendly)</button>
-        <button class="btn" onclick="exportToDoc()">Export to Doc</button>
+        <div id="validation-box" class="validation-box"></div>
+        <div class="button-group">
+            <button class="btn" onclick="exportToPDF()">Export to PDF (ATS Friendly)</button>
+            <button class="btn" onclick="exportToDoc()">Export to Doc</button>
+        </div>
     </div>
 
     <!-- JavaScript for ATS Validation and Exports -->
     <script>
         /*=========================================================
-        ATS CODE VALIDATION
+        ATS CODE VALIDATION & CITATION PURGE
         =========================================================*/
+        function removeCitations() {
+            const resumeContent = document.getElementById("resume-content");
+            if (resumeContent && /\[cite:\s*\d+\]/i.test(resumeContent.innerHTML)) {
+                resumeContent.innerHTML = resumeContent.innerHTML.replace(/\[cite:\s*\d+\]/gi, "");
+            }
+        }
+
         function validateResume() {
+            removeCitations();
             const errors = [];
+
+            // Standard Layout Border Validation
+            const resumeElem = document.getElementById("resume-content");
+            const style = window.getComputedStyle(resumeElem);
+            if (!style.borderStyle || style.borderStyle === "none" || style.borderWidth === "0px") {
+                errors.push("Standard ATS layout border is missing on #resume-content.");
+            }
+
             if (document.querySelectorAll("h1").length !== 1) {
                 errors.push("Resume should contain exactly one H1.");
             }
@@ -371,12 +416,45 @@ MySQL</strong>, and <strong>RESTful APIs</strong>, delivering scalable and maint
                 errors.push("LinkedIn link text should be exactly 'LinkedIn'.");
             }
 
+            // Keyword Validation for Healthcare & AI Tools
+            const requiredKeywords = [
+                "Electronic Health Records (EHR)",
+                "Protected Health Information (PHI)",
+                "HIPAA Compliance",
+                "Scheduling Information Updates (SIU)",
+                "Clinical Documentation",
+                "Healthcare Workflow Automation",
+                "Clinical Summary",
+                "Healthcare Data Integration",
+                "ChatGPT",
+                "Gemini",
+                "GitHub Copilot",
+                "Claude"
+            ];
+
+            const bodyText = document.body.innerText;
+            const missingKeywords = requiredKeywords.filter(kw => !bodyText.toLowerCase().includes(kw.toLowerCase()));
+            if (missingKeywords.length > 0) {
+                errors.push("Missing required keywords: " + missingKeywords.join(", "));
+            }
+
+            const box = document.getElementById("validation-box");
             if (errors.length === 0) {
                 console.log("ATS Validation: PASSED");
+                if (box) {
+                    box.className = "validation-box validation-success";
+                    box.innerHTML = "<strong>✔ ATS Validation Passed:</strong> Resume satisfies all layout, border, link, citation, healthcare, and AI tools keyword guidelines.";
+                }
             } else {
                 console.warn("ATS Validation Warnings:", errors);
+                if (box) {
+                    box.className = "validation-box validation-warning";
+                    box.innerHTML = "<strong>⚠ ATS Validation Warnings:</strong><br>• " + errors.join("<br>• ");
+                }
             }
         }
+
+        document.addEventListener("DOMContentLoaded", validateResume);
         validateResume();
 
         /*=========================================================
