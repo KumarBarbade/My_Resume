@@ -20,17 +20,23 @@
       "file": "${workspaceFolder}/GeminiResume.html"
     },
     {
-      "name": "Debug KumarRes.html (Chrome)",
+      "name": "Debug AryaResume.html (Chrome)",
       "type": "chrome",
       "request": "launch",
-      "file": "${workspaceFolder}/KumarRes.html"
-    },
-    {
-      "name": "Debug Kumar_Barbade_Resume.html (Chrome)",
-      "type": "chrome",
-      "request": "launch",
-      "file": "${workspaceFolder}/Kumar_Barbade_Resume.html"
-    },
+      "file": "${workspaceFolder}/AryaResume.html"
+    }
+    // {
+    //   "name": "Debug KumarRes.html (Chrome)",
+    //   "type": "chrome",
+    //   "request": "launch",
+    //   "file": "${workspaceFolder}/KumarRes.html"
+    // },
+    // {
+    //   "name": "Debug Kumar_Barbade_Resume.html (Chrome)",
+    //   "type": "chrome",
+    //   "request": "launch",
+    //   "file": "${workspaceFolder}/Kumar_Barbade_Resume.html"
+    // },
     // {
     //   "name": "Debug Current Active HTML File (Edge)",
     //   "type": "msedge",
