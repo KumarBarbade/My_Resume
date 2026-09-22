@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kumar Barbade - .NET Developer Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, 'Segoe UI', Helvetica, sans-serif;
+      color: #222222;
+      background: #f7fafc;
+      line-height: 1.45;
+      font-size: 10pt;
+      padding: 20px 10px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 2px solid #1a365d;
+      padding: 28px 36px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .container {
+        border: 1.5px solid #1a365d;
+        box-shadow: none;
+        padding: 20px 25px;
+        border-radius: 0;
+        max-width: 100%;
+      }
+    }
+    header {
+      border-bottom: 2px solid #1a365d;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 18pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1a365d;
+      margin-bottom: 4px;
+    }
+    .headline {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #2b6cb0;
+      margin-bottom: 6px;
+    }
+    .contact-info {
+      font-size: 9pt;
+      color: #4a5568;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .contact-info a {
+      color: #4a5568;
+      text-decoration: none;
+    }
+    section {
+      margin-bottom: 12px;
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+    }
+    h2.section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a365d;
+      border-bottom: 1px solid #cbd5e0;
+      padding-bottom: 3px;
+      margin-bottom: 6px;
+    }
+    p.summary {
+      font-size: 9.5pt;
+      text-align: left;
+      color: #2d3748;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 3px;
+      font-size: 9pt;
+    }
+    .skills-label {
+      font-weight: 700;
+      color: #2d3748;
+    }
+    .skills-content {
+      color: #4a5568;
+    }
+    .job-block {
+      margin-bottom: 8px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    h3.job-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 0;
+      display: inline;
+    }
+    .company {
+      font-weight: 600;
+      color: #2b6cb0;
+    }
+    .date-loc {
+      font-size: 8.5pt;
+      color: #718096;
+      font-style: italic;
+    }
+    ul {
+      margin-left: 16px;
+      font-size: 9pt;
+      color: #2d3748;
+    }
+    li {
+      margin-bottom: 2px;
+    }
+    .project-item {
+      margin-bottom: 6px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    h3.project-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 0;
+    }
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9pt;
+      margin-bottom: 3px;
+    }
+    .cert-list {
+      font-size: 9pt;
+      color: #2d3748;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <h1>Kumar Barbade</h1>
+      <div class="headline">.NET Developer | C#, ASP.NET Core &amp; Microservices</div>
+      <div class="contact-info">
+        <span>(+91) 7888268476</span>
+        <span>•</span>
+        <span>kubarbade@gmail.com</span>
+        <span>•</span>
+        <span><a href="https://www.linkedin.com/in/kumar-barbade-452381166/">linkedin.com/in/kumar-barbade-452381166</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary">
+        Analytical and quality-driven .NET Developer with 4 years of experience engineering scalable, secure, and resilient enterprise applications. Proficient in C#, ASP.NET Core, RESTful API architecture, Microservices, and Relational Database Systems (SQL Server, MySQL). Proven expertise in applying SOLID principles, OOP patterns, unit testing, and robust root-cause debugging to production systems. Experienced in collaborating across cross-functional teams within Agile/Scrum lifecycles and modern CI/CD deployment pipelines.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skills-label">Backend &amp; Languages:</div>
+        <div class="skills-content">C#, .NET Core / ASP.NET Core, Web API, Entity Framework Core, LINQ, Python (FastAPI)</div>
+
+        <div class="skills-label">Databases:</div>
+        <div class="skills-content">Microsoft SQL Server, MySQL, Cloud Firestore, Query Optimization, Schema Design</div>
+
+        <div class="skills-label">Architecture &amp; Design:</div>
+        <div class="skills-content">RESTful APIs, Microservices, OOP, SOLID Principles, Design Patterns, Dependency Injection</div>
+
+        <div class="skills-label">Testing &amp; Practices:</div>
+        <div class="skills-content">xUnit / NUnit, Unit &amp; Integration Testing, Root Cause Analysis, Production Debugging</div>
+
+        <div class="skills-label">DevOps &amp; Tools:</div>
+        <div class="skills-content">Git, GitHub Actions, CI/CD pipelines, Docker, Microsoft Azure (AZ-900), GCP, Jira</div>
+
+        <div class="skills-label">Frontend &amp; Web:</div>
+        <div class="skills-content">JavaScript, TypeScript, Angular, HTML5, CSS3, JSON</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Professional Experience</h2>
+      
+      <article class="job-block">
+        <div class="job-header">
+          <h3 class="job-title"><span class="company">IKS Health</span> — Senior Software Engineer (.NET Developer)</h3>
+          <span class="date-loc">Aug 2025 – Aug 2026</span>
+        </div>
+        <ul>
+          <li>Architect and develop high-throughput backend services and secure RESTful Web APIs using C# and ASP.NET Core for mission-critical healthcare workflows.</li>
+          <li>Design relational schemas, write optimized SQL queries, and implement connection pooling and transactions using Entity Framework Core and relational databases.</li>
+          <li>Implement robust API security controls, token-based authentication (JWT/OAuth), error-handling middleware, and structured logging.</li>
+          <li>Lead code reviews, enforce coding standards, and maintain unit test coverage with xUnit/NUnit to assure software stability and reliability.</li>
+          <li>Collaborate with QA, DevOps, and cloud teams within an Agile/Scrum framework to automate builds and deployments via CI/CD pipelines.</li>
+        </ul>
+      </article>
+
+      <article class="job-block">
+        <div class="job-header">
+          <h3 class="job-title"><span class="company">IKS Health</span> — Product Engineer</h3>
+          <span class="date-loc">Nov 2022 – Aug 2025</span>
+        </div>
+        <ul>
+          <li>Developed an automated patient-encounter allocation system using C# and .NET backend services, reducing manual processing effort by 35%.</li>
+          <li>Conducted deep-dive root-cause analysis (RCA) on production incidents, resolving performance bottlenecks and recurring defects.</li>
+          <li>Integrated backend services with frontend interfaces (Angular, TypeScript) to facilitate seamless data communication and dynamic reporting.</li>
+          <li>Engineered microservices and real-time streaming modules with Cloud Firestore to enhance operational tracking and monitoring by 40%.</li>
+          <li>Participated in sprint planning, backlog refinement, and release deployments using Git for branch management and collaborative reviews.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="section-title">Key Projects</h2>
+      
+      <article class="project-item">
+        <h3 class="project-name">Physician Clinical Portal &amp; Documentation Engine | C#, ASP.NET Core, SQL</h3>
+        <ul>
+          <li>Engineered secure backend REST APIs and role-based access control (RBAC) to retrieve patient histories and export clinical charts.</li>
+          <li>Streamlined lookup efficiency, significantly decreasing pre-visit chart review latency for clinical practitioners.</li>
+        </ul>
+      </article>
+
+      <article class="project-item">
+        <h3 class="project-name">Database Migration &amp; Performance Tuning | .NET Core, Relational Databases, ORM</h3>
+        <ul>
+          <li>Spearheaded data layer refactoring across .NET services; updated client libraries, indexed critical tables, and fine-tuned complex queries.</li>
+          <li>Enhanced transactional throughput and minimized database connection overhead across high-concurrency environments.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="section-title">Education &amp; Certifications</h2>
+      <div class="education-item">
+        <span><strong>Post Graduate Diploma in Computers (PG-DAC)</strong> — CDAC</span>
+        <span class="date-loc">2022</span>
+      </div>
+      <div class="education-item">
+        <span><strong>B.E. in Mechanical Engineering</strong> — Walchand Institute of Technology, Solapur</span>
+        <span class="date-loc">2018</span>
+      </div>
+      <div class="cert-list" style="margin-top: 4px;">
+        <strong>Certifications:</strong> Microsoft Certified: Azure Fundamentals (AZ-900) • Microsoft ASP.NET Core MVC Professional Training • Star Performer of the Year (IKS Health)
+      </div>
+    </section>
+  </div>
+</body>
+</html>
