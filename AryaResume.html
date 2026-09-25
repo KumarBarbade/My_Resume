@@ -8,6 +8,20 @@
       size: A4;
       margin: 10mm 12mm;
     }
+    :root {
+      /* Palette based on AnyPrompt.md standards */
+      /* Primary Text */
+      --text-primary: #333333;      /* Charcoal: Body copy, job descriptions (Modern & high readability) */
+      --text-headings: #1A1A1A;     /* Off-Black: Titles & headers (Professional, softer than pure black) */
+
+      /* Accent Color - Corporate (#1A1A1A) or Modern (#0F766E) */
+      --color-accent: #1A1A1A;      /* Corporate Accent: Headers, section dividers, company branding */
+      /* --color-accent: #0F766E;   /* Modern Accent: Creative/tech-balanced feel & bullet accents */
+
+      /* Muted Accents */
+      --text-muted: #4A5568;        /* Muted Accent: Subheaders, dates, locations (Passes >= #555555 contrast) */
+      --color-divider: #1A1A1A;     /* Section dividers */
+    }
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,7 +29,7 @@
     }
     body {
       font-family: Arial, 'Segoe UI', Helvetica, sans-serif;
-      color: #222222;
+      color: var(--text-primary, #333333);
       background: #f7fafc;
       line-height: 1.45;
       font-size: 10pt;
@@ -25,7 +39,7 @@
       max-width: 800px;
       margin: 0 auto;
       background: #ffffff;
-      border: 2px solid #1a365d;
+      border: 2px solid var(--color-accent, #1A1A1A);
       padding: 28px 36px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       border-radius: 4px;
@@ -36,7 +50,7 @@
         padding: 0;
       }
       .container {
-        border: 1.5px solid #1a365d;
+        border: 1.5px solid var(--color-accent, #1A1A1A);
         box-shadow: none;
         padding: 20px 25px;
         border-radius: 0;
@@ -44,7 +58,7 @@
       }
     }
     header {
-      border-bottom: 2px solid #1a365d;
+      border-bottom: 2px solid var(--color-divider, #1A1A1A);
       padding-bottom: 8px;
       margin-bottom: 12px;
       text-align: center;
@@ -53,26 +67,30 @@
       font-size: 18pt;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #1a365d;
+      color: var(--color-accent, #1A1A1A);
       margin-bottom: 4px;
     }
     .headline {
       font-size: 11pt;
       font-weight: 600;
-      color: #2b6cb0;
+      color: var(--text-muted, #4A5568);
       margin-bottom: 6px;
     }
     .contact-info {
       font-size: 9pt;
-      color: #4a5568;
+      color: var(--text-muted, #4A5568);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
     }
     .contact-info a {
-      color: #4a5568;
+      color: var(--text-muted, #4A5568);
       text-decoration: none;
+    }
+    .contact-info a:hover {
+      color: var(--color-accent, #1A1A1A);
+      text-decoration: underline;
     }
     section {
       margin-bottom: 12px;
@@ -84,15 +102,15 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #1a365d;
-      border-bottom: 1px solid #cbd5e0;
+      color: var(--color-accent, #1A1A1A);
+      border-bottom: 1.5px solid var(--color-divider, #1A1A1A);
       padding-bottom: 3px;
       margin-bottom: 6px;
     }
     p.summary {
       font-size: 9.5pt;
       text-align: left;
-      color: #2d3748;
+      color: var(--text-primary, #333333);
     }
     .skills-grid {
       display: grid;
@@ -102,10 +120,10 @@
     }
     .skills-label {
       font-weight: 700;
-      color: #2d3748;
+      color: var(--text-headings, #1A1A1A);
     }
     .skills-content {
-      color: #4a5568;
+      color: var(--text-primary, #333333);
     }
     .job-block {
       margin-bottom: 8px;
@@ -121,26 +139,29 @@
     h3.job-title {
       font-size: 10pt;
       font-weight: 700;
-      color: #2d3748;
+      color: var(--text-headings, #1A1A1A);
       margin: 0;
       display: inline;
     }
     .company {
       font-weight: 600;
-      color: #2b6cb0;
+      color: var(--color-accent, #1A1A1A);
     }
     .date-loc {
       font-size: 8.5pt;
-      color: #718096;
+      color: var(--text-muted, #4A5568);
       font-style: italic;
     }
     ul {
       margin-left: 16px;
       font-size: 9pt;
-      color: #2d3748;
+      color: var(--text-primary, #333333);
     }
     li {
       margin-bottom: 2px;
+    }
+    li::marker {
+      color: var(--color-accent, #1A1A1A);
     }
     .project-item {
       margin-bottom: 6px;
@@ -150,7 +171,7 @@
     h3.project-name {
       font-size: 9.5pt;
       font-weight: 700;
-      color: #2d3748;
+      color: var(--text-headings, #1A1A1A);
       margin: 0;
     }
     .education-item {
@@ -158,10 +179,17 @@
       justify-content: space-between;
       font-size: 9pt;
       margin-bottom: 3px;
+      color: var(--text-primary, #333333);
+    }
+    .education-item strong {
+      color: var(--text-headings, #1A1A1A);
     }
     .cert-list {
       font-size: 9pt;
-      color: #2d3748;
+      color: var(--text-primary, #333333);
+    }
+    .cert-list strong {
+      color: var(--text-headings, #1A1A1A);
     }
   </style>
 </head>
@@ -173,9 +201,9 @@
       <div class="contact-info">
         <span>(+91) 7888268476</span>
         <span>•</span>
-        <span>kubarbade@gmail.com</span>
+        <span><a href="mailto:ksbbarbade123@gmail.com">ksbbarbade123@gmail.com</a></span>
         <span>•</span>
-        <span><a href="https://www.linkedin.com/in/kumar-barbade-452381166/">linkedin.com/in/kumar-barbade-452381166</a></span>
+        <span><a href="https://www.linkedin.com/in/kumar-barbade-452381166/">LinkedIn</a></span>
       </div>
     </header>
 
@@ -198,9 +226,6 @@
         <div class="skills-label">Architecture &amp; Design:</div>
         <div class="skills-content">RESTful APIs, Microservices, OOP, SOLID Principles, Design Patterns, Dependency Injection</div>
 
-        <div class="skills-label">Testing &amp; Practices:</div>
-        <div class="skills-content">xUnit / NUnit, Unit &amp; Integration Testing, Root Cause Analysis, Production Debugging</div>
-
         <div class="skills-label">DevOps &amp; Tools:</div>
         <div class="skills-content">Git, GitHub Actions, CI/CD pipelines, Docker, Microsoft Azure (AZ-900), GCP, Jira</div>
 
@@ -214,24 +239,24 @@
       
       <article class="job-block">
         <div class="job-header">
-          <h3 class="job-title"><span class="company">IKS Health</span> — Senior Software Engineer (.NET Developer)</h3>
+          <h3 class="job-title"><span class="company">IKS Health</span> — Senior Software Engineer</h3>
           <span class="date-loc">Aug 2025 – Aug 2026</span>
         </div>
         <ul>
-          <li>Architect and develop high-throughput backend services and secure RESTful Web APIs using C# and ASP.NET Core for mission-critical healthcare workflows.</li>
-          <li>Design relational schemas, write optimized SQL queries, and implement connection pooling and transactions using Entity Framework Core and relational databases.</li>
-          <li>Implement robust API security controls, token-based authentication (JWT/OAuth), error-handling middleware, and structured logging.</li>
+          <li>Developed high-throughput backend services and secure RESTful Web APIs using C# and ASP.NET Core for scalable healthcare workflows.</li>
+          <li>Design relational schemas, write optimized SQL queries, and implement connection pooling and transactions using relational databases.</li>
+          <li>Collaborated with Product Managers, QA, and cross-functional teams in an Agile environment, participating in code reviews, debugging, and performance optimization.</li>
         </ul>
       </article>
 
       <article class="job-block">
         <div class="job-header">
-          <h3 class="job-title"><span class="company">IKS Health</span> — Product Engineer</h3>
+          <h3 class="job-title"><span class="company">IKS Health</span> — Software Engineer</h3>
           <span class="date-loc">Nov 2022 – Aug 2025</span>
         </div>
         <ul>
           <li>Developed an automated patient-encounter allocation system using C# and .NET backend services, reducing manual processing effort by 35%.</li>
-          <li>Integrated backend services with frontend interfaces (Angular, TypeScript) to facilitate seamless data communication and dynamic reporting.</li>
+          <li>Integrated backend services with frontend interfaces (JavaScript, jQuery) to facilitate seamless data communication and dynamic reporting.</li>
           <li>Engineered microservices and real-time streaming modules with Cloud Firestore to enhance operational tracking and monitoring by 40%.</li>
         </ul>
       </article>
@@ -241,18 +266,34 @@
       <h2 class="section-title">Key Projects</h2>
       
       <article class="project-item">
-        <h3 class="project-name">Physician Clinical Portal &amp; Documentation Engine | C#, ASP.NET Core, SQL</h3>
+        <h3 class="project-name">Web Portal for Physician To Monitor Appointments</h3>
         <ul>
-          <li>Engineered secure backend REST APIs and role-based access control (RBAC) to retrieve patient histories and export clinical charts.</li>
-          <li>Streamlined lookup efficiency, significantly decreasing pre-visit chart review latency for clinical practitioners.</li>
+          <li>Streamlined clinical documentation and patient tracking by developing a HIPAA-compliant .NET Core app..</li>
+          <li>Enabled PDF generation for chart notes, ensuring accurate, compliant, and easily shareable patientrecords.</li>
         </ul>
       </article>
 
       <article class="project-item">
-        <h3 class="project-name">Database Migration &amp; Performance Tuning | .NET Core, Relational Databases, ORM</h3>
+        <h3 class="project-name">Database Migration &amp; Performance Tuning</h3>
         <ul>
-          <li>Spearheaded data layer refactoring across .NET services; updated client libraries, indexed critical tables, and fine-tuned complex queries.</li>
-          <li>Enhanced transactional throughput and minimized database connection overhead across high-concurrency environments.</li>
+          <li>Led MySQL migration from 5.6 to 8.0, improving database performance, reliability, and scalability.</li>
+          <li>Upgraded MySQL libraries across .NET applications and APIs, ensuring seamless compatibility with MySQL 8.0</li>
+        </ul>
+      </article>
+
+      <article class="project-item">
+        <h3 class="project-name">Real-Time Scribe Monitoring Dashboard</h3>
+        <ul>
+          <li>Built a real-time monitoring dashboard, improving operational visibility and reducing manual tracking by 40%.</li>
+          <li>Leveraged Google Cloud Firestore (NoSQL) for dynamic data access to ensure real-time data synchronization and Healthcare Data Integration.</li>
+        </ul>
+      </article>
+
+      <article class="project-item">
+        <h3 class="project-name">Pre-Visit Summary of Patient</h3>
+        <ul>
+          <li>Built a healthcare web application generating a comprehensive Clinical Summary to provide physicians with pre-visit access to patient medical history.</li>
+          <li>Designed responsive user interfaces and optimized backend APIs for secure and efficient Clinical Documentation</strong> retrieval.</li>
         </ul>
       </article>
     </section>

@@ -7,6 +7,7 @@
   - A 2–4 bullet high-level summary of changes (e.g., keywords replaced, sections tailored).
   - The exact line range affected.
 - Never show raw terminal diffs or full code blocks unless explicitly requested with: "show full code" or "print in terminal".
+- Never show Summary of Changes unless explicitly requested
 
 ## 2. File Reading & Editing Rules (Prevent Context Inflation)
 - NEVER read entire HTML files if only inspecting specific sections. Always use targeted line ranges (`StartLine` and `EndLine`) with `view_file`.
