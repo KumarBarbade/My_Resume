@@ -114,13 +114,19 @@
     }
     .skills-grid {
       display: grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: max-content auto 1fr;
       row-gap: 3px;
       font-size: 9pt;
+      align-items: baseline;
     }
     .skills-label {
       font-weight: 700;
       color: var(--text-headings, #1A1A1A);
+    }
+    .skills-colon {
+      font-weight: 700;
+      color: var(--text-headings, #1A1A1A);
+      padding-right: 8px;
     }
     .skills-content {
       color: var(--text-primary, #333333);
@@ -197,7 +203,7 @@
   <div class="container" role="main">
     <header>
       <h1>Kumar Barbade</h1>
-      <div class="headline">.NET Developer | C#, ASP.NET Core &amp; Microservices</div>
+      <div class="headline">Senior Software Developer | C#, .NET Core &amp; Google Cloud</div>
       <div class="contact-info">
         <span>(+91) 7888268476</span>
         <span>•</span>
@@ -210,59 +216,79 @@
     <section>
       <h2 class="section-title">Professional Summary</h2>
       <p class="summary">
-        Analytical and quality-driven .NET Developer with 4 years of experience engineering scalable, secure, and resilient enterprise applications. Proficient in C#, ASP.NET Core, RESTful API architecture, Microservices, and Relational Database Systems (SQL Server, MySQL). Proven expertise in applying SOLID principles, OOP patterns, unit testing, and robust root-cause debugging to production systems. Experienced in collaborating across cross-functional teams within Agile/Scrum lifecycles and modern CI/CD deployment pipelines.
+      Results-driven .NET Developer with around 4 years of experience architecting scalable, secure, and resilient enterprise applications. Proficient in C#, ASP.NET Core, RESTful APIs, Microservices, and relational databases (SQL Server, MySQL). Proven expertise in applying SOLID principles, OOP design patterns, unit testing, and advanced root-cause debugging to production systems. Experienced in collaborating within cross-functional Agile/Scrum teams and modern CI/CD deployment pipelines.
       </p>
     </section>
 
     <section>
       <h2 class="section-title">Technical Skills</h2>
       <div class="skills-grid">
-        <div class="skills-label">Backend &amp; Languages:</div>
-        <div class="skills-content">C#, .NET Core / ASP.NET Core, Web API, Entity Framework Core, LINQ, Python (FastAPI)</div>
+        <div class="skills-label">Languages & Frameworks</div>
+        <div class="skills-colon">:</div>
+        <div class="skills-content">C#, .NET, .NET Framework, ASP.NET Core Web API, Entity Framework Core, LINQ, Python, FastAPI</div>
 
-        <div class="skills-label">Databases:</div>
-        <div class="skills-content">Microsoft SQL Server, MySQL, Cloud Firestore, Query Optimization, Schema Design</div>
+        <div class="skills-label">Databases</div>
+        <div class="skills-colon">:</div>
+        <div class="skills-content">SQL Server, MySQL8.0, Cloud Firestore, Google Cloud Platform, Azure</div>
 
-        <div class="skills-label">Architecture &amp; Design:</div>
-        <div class="skills-content">RESTful APIs, Microservices, OOP, SOLID Principles, Design Patterns, Dependency Injection</div>
+        <div class="skills-label">Architecture &amp; Design</div>
+        <div class="skills-colon">:</div>
+        <div class="skills-content">RESTful APIs, Microservices, OOPS, SOLID Principles, Design Patterns, Dependency Injection</div>
 
-        <div class="skills-label">DevOps &amp; Tools:</div>
-        <div class="skills-content">Git, GitHub Actions, CI/CD pipelines, Docker, Microsoft Azure (AZ-900), GCP, Jira</div>
+        <div class="skills-label">DevOps &amp; Tools</div>
+        <div class="skills-colon">:</div>
+        <div class="skills-content">Git, GitHub Actions, CI/CD, Docker, Jira, Bitbucket, Redox, Rhapsody, HL7, EHR Integration</div>
 
-        <div class="skills-label">Frontend &amp; Web:</div>
-        <div class="skills-content">JavaScript, TypeScript, Angular, HTML5, CSS3, JSON</div>
+        <div class="skills-label">Frontend &amp; Web</div>
+        <div class="skills-colon">:</div>
+        <div class="skills-content">JavaScript, jQuery, TypeScript, Angular, React, HTML5, CSS3, JSON</div>
+        
+        <div class="skills-label">AI Skills &amp; Tools</div>
+        <div class="skills-colon">:</div>
+        <div class="skills-content">Github Copilot, ChatGPT, Claude, Custom AI Agents, LLMs, RAG, MCP, Agentic AI</div>
       </div>
     </section>
 
     <section>
       <h2 class="section-title">Professional Experience</h2>
-      
+    
       <article class="job-block">
         <div class="job-header">
-          <h3 class="job-title"><span class="company">IKS Health</span> — Senior Software Engineer</h3>
-          <span class="date-loc">Aug 2025 – Aug 2026</span>
+          <h3 class="job-title"><span class="company">Senior Software Engineer</span> — IKS Health</h3>
+          <span class="date-loc">Aug 2025 – Present</span>
         </div>
-        <ul>
-          <li>Developed high-throughput backend services and secure RESTful Web APIs using C# and ASP.NET Core for scalable healthcare workflows.</li>
-          <li>Design relational schemas, write optimized SQL queries, and implement connection pooling and transactions using relational databases.</li>
-          <li>Collaborated with Product Managers, QA, and cross-functional teams in an Agile environment, participating in code reviews, debugging, and performance optimization.</li>
+        <ul>   
+          <li>Engineered high-throughput REST APIs via ASP.NET Core and C#, elevating clinical EHR data processing speeds by 30%.</li>
+          <li>Formulated schema indexes and connection pools in MySQL, reducing production transactional query latency by 25%.</li>
+          <li>Directed the MySQL migration from version 5.6 to 8.0, boosting overall database reliability and architectural scale.</li>
+          <li>Modernized client database libraries across .NET services, ensuring complete runtime compatibility with MySQL 8.0</li>
+          <li>Spearheaded HIPAA-compliant .NET Core modules to track appointments and streamline ongoing clinical documentation.</li>
+          <li>Automated PDF medical record generation pipelines to deliver verified chart notes for secure inter-clinic sharing.</li>
+          <li>Standardized relational transactional boundaries to maintain data integrity during concurrent physician operations.</li>
+          <li>Coordinated cross-functional code reviews and debugging efforts to maintain high architectural performance standards.</li>
+          <li>Deployed Python FastAPI solutions to synchronize data across disparate systems and eliminate transmission delays.</li>
         </ul>
       </article>
-
       <article class="job-block">
         <div class="job-header">
-          <h3 class="job-title"><span class="company">IKS Health</span> — Software Engineer</h3>
+          <h3 class="job-title"><span class="company">Software Engineer</span> — IKS Health</h3>
           <span class="date-loc">Nov 2022 – Aug 2025</span>
         </div>
-        <ul>
-          <li>Developed an automated patient-encounter allocation system using C# and .NET backend services, reducing manual processing effort by 35%.</li>
-          <li>Integrated backend services with frontend interfaces (JavaScript, jQuery) to facilitate seamless data communication and dynamic reporting.</li>
-          <li>Engineered microservices and real-time streaming modules with Cloud Firestore to enhance operational tracking and monitoring by 40%.</li>
+        <ul>   
+          <li>Developed an automated patient encounter allocation system, decreasing manual staff processing workload by 35%.</li>
+          <li>Accelerated operational tracking by 40% through building a dynamic real-time monitoring dashboard with Firestore.</li>
+          <li>Integrated JavaScript interfaces with backend RESTful services to facilitate dynamic clinical reporting workflows.</li>
+          <li>Implemented Firestore NoSQL dynamic streams to drive reliable healthcare data synchronization across internal pipelines.</li>
+          <li>Architected a clinical summary portal, providing physicians instant pre-visit access to unified patient histories.</li>
+          <!-- <li>Optimized responsive User Interface layouts and backend APIs to support secure clinical medical documentation retrieval.</li> -->
+          <li>Enhanced patient allocation routing rules across .NET microservices to eliminate bottlenecks in clinical scheduling.</li>
+          <li>Diagnosed production runtime defects and resolved complex query performance bottlenecks across application layers.</li>
+          <li>Python services uploading varied healthcare schemas to Cloud Firestore for reliable field attribute mapping.</li>
         </ul>
       </article>
     </section>
 
-    <section>
+    <!-- <section>
       <h2 class="section-title">Key Projects</h2>
       
       <article class="project-item">
@@ -296,10 +322,10 @@
           <li>Designed responsive user interfaces and optimized backend APIs for secure and efficient Clinical Documentation</strong> retrieval.</li>
         </ul>
       </article>
-    </section>
+    </section> -->
 
     <section>
-      <h2 class="section-title">Education &amp; Certifications</h2>
+      <h2 class="section-title">Education</h2>
       <div class="education-item">
         <span><strong>Post Graduate Diploma in Computers (PG-DAC)</strong> — CDAC</span>
         <span class="date-loc">2022</span>
@@ -308,9 +334,15 @@
         <span><strong>B.E. in Mechanical Engineering</strong> — Walchand Institute of Technology, Solapur</span>
         <span class="date-loc">2018</span>
       </div>
-      <div class="cert-list" style="margin-top: 4px;">
-        <strong>Certifications:</strong> Microsoft Certified: Azure Fundamentals (AZ-900) • Microsoft ASP.NET Core MVC Professional Training • Star Performer of the Year (IKS Health)
-      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Certifications</h2>
+      <ul>
+        <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
+        <li>Microsoft ASP.NET Core MVC Professional Training</li>
+        <li>Star Performer of the Year (IKS Health)</li>
+      </ul>
     </section>
   </div>
 </body>
