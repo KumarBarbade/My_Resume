@@ -25,6 +25,7 @@
     * {
       box-sizing: border-box;
       margin: 0;
+
       padding: 0;
     }
     body {
@@ -94,8 +95,8 @@
     }
     section {
       margin-bottom: 12px;
-      break-inside: avoid-page;
-      page-break-inside: avoid;
+      break-inside: auto;
+      page-break-inside: auto;
     }
     h2.section-title {
       font-size: 11pt;
@@ -133,10 +134,10 @@
     }
     .job-block {
       margin-bottom: 8px;
-      break-inside: avoid;
-      page-break-inside: avoid;
+      break-inside: auto;
+      page-break-inside: auto;
     }
-    .job-header {
+    .job-header, .project-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -147,7 +148,8 @@
       font-weight: 700;
       color: var(--text-headings, #1A1A1A);
       margin: 0;
-      display: inline;
+
+
     }
     .company {
       font-weight: 600;
@@ -171,8 +173,8 @@
     }
     .project-item {
       margin-bottom: 6px;
-      break-inside: avoid;
-      page-break-inside: avoid;
+      break-inside: auto;
+      page-break-inside: auto;
     }
     h3.project-name {
       font-size: 9.5pt;
@@ -205,12 +207,12 @@
       <h1>Kumar Barbade</h1>
       <div class="headline">Senior Software Developer | C#, .NET Core &amp; Google Cloud</div>
       <div class="contact-info">
-        <!-- <span>(+91) 7888268476</span> -->
-        <span>(+91) 9405841593</span>
-        <!-- <span>•</span>
-        <span><a href="mailto:ksbbarbade123@gmail.com">ksbbarbade123@gmail.com</a></span> -->
+        <span>(+91) 7888268476</span>
+        <!-- <span>(+91) 9405841593</span> -->
         <span>•</span>
-        <span><a href="mailto:kubarbade@gmail.com">kubarbade@gmail.com</a></span>
+        <span><a href="mailto:ksbbarbade123@gmail.com">ksbbarbade123@gmail.com</a></span>
+        <!-- <span>•</span>
+        <span><a href="mailto:kubarbade@gmail.com">kubarbade@gmail.com</a></span> -->
         <span>•</span>
         <span><a href="https://www.linkedin.com/in/kumar-barbade-452381166/">LinkedIn</a></span>
         <span>•</span>
@@ -248,7 +250,7 @@
 
         <div class="skills-label">Frontend &amp; Web</div>
         <div class="skills-colon">:</div>
-        <div class="skills-content">JavaScript, jQuery, TypeScript, Angular, React, HTML5, CSS3, JSON</div>
+        <div class="skills-content">JavaScript, jQuery, TypeScript, Angular 21, React, HTML5, CSS3, JSON</div>
         
         <div class="skills-label">AI Skills &amp; Tools</div>
         <div class="skills-colon">:</div>
@@ -267,13 +269,13 @@
         <ul>   
           <li>Engineered high-throughput REST APIs via ASP.NET Core and C#, elevating clinical EHR data processing speeds by 30%.</li>
           <li>Integrated backend components with Microsoft Azure focusing on application reliability and secure data exchange.</li>
-          <li>Directed the MySQL migration from version 5.6 to 8.0, boosting overall database reliability and architectural scale.</li>
-          <li>Modernized client database libraries across .NET services, ensuring complete runtime compatibility with MySQL 8.0</li>
-          <li>Spearheaded HIPAA-compliant .NET Core modules to track appointments and streamline ongoing clinical documentation.</li>
+          <!-- <li>Directed the MySQL migration from version 5.6 to 8.0, boosting overall database reliability and architectural scale.</li> -->
+          <!-- <li>Modernized client database libraries across .NET services, ensuring complete runtime compatibility with MySQL 8.0</li>
+          <li>Spearheaded HIPAA-compliant .NET Core modules to track appointments and streamline ongoing clinical documentation.</li> -->
           <li>Integrated Angular modules with RESTful APIs to enable seamless data exchange and real-time clinical workflow operations.</li>
-          <li>Standardized relational transactional boundaries to maintain data integrity during concurrent physician operations.</li>
+          <!-- <li>Standardized relational transactional boundaries to maintain data integrity during concurrent physician operations.</li> -->
           <li>Coordinated cross-functional code reviews and debugging efforts to maintain high architectural performance standards.</li>
-          <li>Deployed Python FastAPI solutions to synchronize data across disparate systems and eliminate transmission delays.</li>
+          <!-- <li>Deployed Python FastAPI solutions to synchronize data across disparate systems and eliminate transmission delays.</li> -->
         </ul>
       </article>
       <article class="job-block">
@@ -282,54 +284,67 @@
           <span class="date-loc">Nov 2022 – Aug 2025</span>
         </div>
         <ul>   
-          <li>Developed an automated patient encounter allocation system, decreasing manual staff processing workload by 35%.</li>
-          <li>Accelerated operational tracking by 40% through building a dynamic real-time monitoring dashboard with Firestore.</li>
+          <li>Developed an automated patient encounter allocation system, using C# and ASP.NET Core Web APIs to increase productivity</li>
+          <!-- <li>Accelerated operational tracking by 40% through building a dynamic real-time monitoring dashboard with Firestore.</li> -->
           <li>Integrated component-based development practices using React to improve frontend maintainability, reusability.</li>
           <li>Implemented Firestore NoSQL dynamic streams to drive reliable healthcare data synchronization across internal pipelines.</li>
-          <li>Architected a clinical summary portal, providing physicians instant pre-visit access to unified patient histories.</li>
+          <!-- <li>Architected a clinical summary portal, providing physicians instant pre-visit access to unified patient histories.</li> -->
           <!-- <li>Optimized responsive User Interface layouts and backend APIs to support secure clinical medical documentation retrieval.</li> -->
           <!-- <li>Enhanced patient allocation routing rules across .NET microservices to eliminate bottlenecks in clinical scheduling.</li> -->
           <li>Diagnosed production runtime defects and resolved complex query performance bottlenecks across application layers.</li>
-          <li>Implemented Python services uploading varied healthcare schemas to Cloud Firestore for reliable field attribute mapping.</li>
+          <!-- <li>Implemented Python services uploading varied healthcare schemas to Cloud Firestore for reliable field attribute mapping.</li> -->
         </ul>
       </article>
     </section>
 
-    <!-- <section>
-      <h2 class="section-title">Key Projects</h2>
+<section>
+  <h2 class="section-title">Key Projects</h2>
+
+  <article class="project-item">
+    <div class="project-header"><h3 class="project-name">Web Portal for Physician To Monitor Appointments</h3><span class="date-loc">Aug 2025 – Oct 2026</span></div>
+    <ul>
+      <li>Streamlined clinical documentation and patient tracking by developing a HIPAA-compliant .NET Core application.</li>
+      <li>Enabled PDF generation for chart notes, ensuring accurate, compliant, and easily shareable patient records.</li>
+      <!-- <li>Modernized client database libraries across .NET services, ensuring runtime compatibility with MySQL 8.0.</li> -->
+      <li>Developed data access functionality using Entity Framework Core with the Database-First approach to work with existing database schemas.</li>
+      <li>Built responsive user interfaces using Angular and integrated Angular components with ASP.NET Core Web APIs for appointment tracking and clinical documentation.</li>
+    </ul>
+  </article>
+
+  <article class="project-item">
+    <div class="project-header"><h3 class="project-name">Database Migration &amp; Performance Tuning</h3><span class="date-loc">May 2025 – Jul 2025</span></div>
+    <ul>
+      <!-- <li>Led MySQL migration from 5.6 to 8.0, improving database performance, reliability, and scalability.</li> -->
+      <li>Upgraded MySQL libraries across .NET applications and APIs, ensuring seamless compatibility with MySQL 8.0.</li>
+      <li>Used Entity Framework Core with the Database-First approach to scaffold entities and database context from existing database structures.</li>
+      <!-- <li>Developed Angular 21 components and integrated them with Web APIs to retrieve and display database information through the application interface.</li> -->
+    </ul>
+  </article>
+
+  <article class="project-item">
+    <div class="project-header"><h3 class="project-name">Real-Time Scribe Monitoring Dashboard</h3><span class="date-loc">June 2023 – April 2024</span></div>
+    <ul>
+      <!-- <li>Built a real-time monitoring dashboard, improving operational visibility and reducing manual tracking by 40%.</li> -->
+      <li>Developed interactive dashboard components using C#, ASP.NET Core and Angular to display real-time monitoring information.</li>
+      <li>Implemented Python services uploading varied healthcare schemas to Cloud Firestore for reliable field attribute mapping.</li>
+      <li>Leveraged Google Cloud Firestore (NoSQL) for dynamic data access, real-time synchronization, and healthcare data integration.</li>
+      <li>Deployed Python FastAPI solutions to synchronize data across disparate systems and eliminate transmission delays.</li>
+      <li>Implemented Entity Framework Core using the Database-First approach for relational data access and integration with existing database schemas.</li>
       
-      <article class="project-item">
-        <h3 class="project-name">Web Portal for Physician To Monitor Appointments</h3>
-        <ul>
-          <li>Streamlined clinical documentation and patient tracking by developing a HIPAA-compliant .NET Core app..</li>
-          <li>Enabled PDF generation for chart notes, ensuring accurate, compliant, and easily shareable patientrecords.</li>
-        </ul>
-      </article>
+    </ul>
+  </article>
 
-      <article class="project-item">
-        <h3 class="project-name">Database Migration &amp; Performance Tuning</h3>
-        <ul>
-          <li>Led MySQL migration from 5.6 to 8.0, improving database performance, reliability, and scalability.</li>
-          <li>Upgraded MySQL libraries across .NET applications and APIs, ensuring seamless compatibility with MySQL 8.0</li>
-        </ul>
-      </article>
+  <article class="project-item">
+    <div class="project-header"><h3 class="project-name">Pre-Visit Summary of Patient</h3><span class="date-loc">Nov 2022 – May 2023</span></div>
+    <ul>
 
-      <article class="project-item">
-        <h3 class="project-name">Real-Time Scribe Monitoring Dashboard</h3>
-        <ul>
-          <li>Built a real-time monitoring dashboard, improving operational visibility and reducing manual tracking by 40%.</li>
-          <li>Leveraged Google Cloud Firestore (NoSQL) for dynamic data access to ensure real-time data synchronization and Healthcare Data Integration.</li>
-        </ul>
-      </article>
-
-      <article class="project-item">
-        <h3 class="project-name">Pre-Visit Summary of Patient</h3>
-        <ul>
-          <li>Built a healthcare web application generating a comprehensive Clinical Summary to provide physicians with pre-visit access to patient medical history.</li>
-          <li>Designed responsive user interfaces and optimized backend APIs for secure and efficient Clinical Documentation</strong> retrieval.</li>
-        </ul>
-      </article>
-    </section> -->
+      <li>Built a healthcare web application using C#, ASP.NET core for generating comprehensive clinical summaries to provide physicians with pre-visit access to patient medical history.</li>
+      <li>Designed responsive user interfaces and optimized backend APIs for secure and efficient clinical documentation retrieval.</li>
+    <!-- <li>Implemented Entity Framework Core with the Database-First approach to map existing database tables and manage patient-related data.</li> -->
+      <!-- <li>Developed responsive screens using Angular 21 and integrated Angular services with ASP.NET Core Web APIs to retrieve and display patient clinical summaries.</li> -->
+    </ul>
+  </article>
+</section>
 
     <section>
       <h2 class="section-title">Education</h2>
