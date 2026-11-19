@@ -133,8 +133,8 @@
     }
     .job-block {
       margin-bottom: 8px;
-      break-inside: auto;
-      page-break-inside: auto;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
     .job-header {
       display: flex;
@@ -173,20 +173,6 @@
       margin-bottom: 6px;
       break-inside: avoid;
       page-break-inside: avoid;
-    }
-    .job-block .project-item {
-      margin-top: 6px;
-      margin-left: 16px;
-      margin-bottom: 4px;
-    }
-    .job-block .project-item:last-child {
-      margin-bottom: 0;
-    }
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 2px;
     }
     h3.project-name {
       font-size: 9.5pt;
@@ -279,38 +265,16 @@
       <article class="job-block">
         <div class="job-header">
           <h3 class="job-title"><span class="company">Senior Software Engineer</span> — IKS Health</h3>
-          <span class="date-loc">Aug 2025 – Oct 2026</span>
+          <span class="date-loc">Aug 2025 – Present</span>
         </div>
         <ul>  
-          <li>Engineered cloud-native healthcare web apps and RESTful APIs using C# and ASP.NET Core, boosting speeds by 30%.</li>
-          <li>Architected .NET Core modules to track patient appointments and streamline clinical documentation workflows.</li>
-          <li>Directed cross-functional requirement analysis and root-cause troubleshooting to ensure high production system reliability.</li>
-          <li>Integrated responsive Angular and React modules with RESTful APIs to power seamless real-time clinical workflow operations.</li>
-          <li>Deployed Google Cloud and Azure services to synchronize healthcare data across distributed .NET and Python microservices.</li>
-          <li>Automated multi-environment CI/CD deployment pipelines using Jenkins to accelerate reliable enterprise software releases.</li>
+          <li>Engineered scalable cloud-native healthcare web apps and RESTful APIs using C# and ASP.NET Core, boosting speeds by 30%.</li>
+          <li>Architected enterprise .NET Core modules to track patient appointments and streamline clinical documentation operations.</li>
+          <li>Directed cross-functional requirement analysis and root-cause troubleshooting to maintain production system reliability.</li>
+          <li>Integrated responsive Angular and React UI components with RESTful APIs to enable seamless real-time clinical workflows.</li>
+          <li>Deployed Google Cloud and Azure services to synchronize healthcare data across production .NET and Python microservices.</li>
+          <li>Automated multi-environment CI/CD deployment pipelines with Jenkins to accelerate reliable enterprise software releases.</li>
         </ul>
-
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-name">Web Portal for Physician To Monitor Appointments</h3>
-            <span class="date-loc">8 Months</span>
-          </div>
-          <ul>
-            <li>Streamlined clinical documentation and patient tracking by architecting a scalable, HIPAA-compliant ASP.NET Core portal.</li>
-            <li>Implemented automated PDF chart note generation pipelines for accurate, compliant, and easily shareable patient records.</li>
-          </ul>
-        </article>
-
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-name">Database Migration & Performance Tuning</h3>
-            <span class="date-loc">6 Months</span>
-          </div>
-          <ul>
-            <li>Spearheaded an enterprise MySQL database migration from 5.6 to 8.0, elevating query performance, reliability, and scale.</li>
-            <li>Upgraded core MySQL data libraries across .NET applications and REST APIs, ensuring full runtime compatibility with 8.0.</li>
-          </ul>
-        </article>
       </article>
       <article class="job-block">
         <div class="job-header">
@@ -320,33 +284,47 @@
         <ul>  
           <li>Created a clinical summary portal using C# and ASP.NET Core REST APIs, giving physicians instant patient history access.</li>
           <li>Built dynamic Angular and React UI components backed by Google Cloud and Azure services for scalable clinical workflows.</li>
-          <li>Implemented Python data ingestion services to map and stream diverse healthcare schemas into Cloud Firestore seamlessly.</li>
-          <li>Developed optimized SQL stored procedures to generate real-time analytics reports for daily scribe productivity metrics.</li>
-          <li>Resolved complex production and QA software bugs via root-cause analysis to ensure a seamless physician user experience.</li>
-          <li>Collaborated across Agile development teams to streamline production releases across the software development lifecycle.</li>
+          <li>Implemented Python data ingestion services to map and stream varied healthcare schemas into Cloud Firestore collections.</li>
+          <li>Engineered optimized SQL stored procedures to generate real-time analytics reports monitoring daily scribe productivity.</li>
+          <li>Resolved complex production and QA software defects via root-cause debugging to deliver a seamless physician experience.</li>
+          <li>Partnered with Agile engineering teams to streamline production releases across the full software development lifecycle.</li>
         </ul>
+      </article>
+    </section>
 
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-name">Real-Time Scribe Monitoring Dashboard</h3>
-            <span class="date-loc">16 Months</span>
-          </div>
-          <ul>
-            <li>Implemented a real-time analytics monitoring dashboard, raising operational visibility and cutting manual effort by 40%.</li>
-            <li>Leveraged Cloud Firestore NoSQL streams for dynamic access, ensuring real-time synchronization and EHR data integration.</li>
-          </ul>
-        </article>
+   <section>
+      <h2 class="section-title">Key Projects</h2>
+      
+      <article class="project-item">
+        <h3 class="project-name">Web Portal for Physician To Monitor Appointments</h3>
+        <ul>
+          <li>Streamlined clinical documentation and patient tracking by building a scalable, HIPAA-compliant ASP.NET Core web portal.</li>
+          <li>Implemented automated PDF chart note generation pipelines, ensuring accurate, compliant, and shareable clinical records.</li>
+        </ul>
+      </article>
 
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-name">Pre-Visit Summary of Patient</h3>
-            <span class="date-loc">18 Months</span>
-          </div>
-          <ul>
-            <li>Developed a full-stack healthcare web portal generating clinical summaries for instant physician access to patient data.</li>
-            <li>Designed responsive UI interfaces and optimized RESTful backend APIs for secure, rapid clinical documentation retrieval.</li>
-          </ul>
-        </article>
+      <article class="project-item">
+        <h3 class="project-name">Database Migration & Performance Tuning</h3>
+        <ul>
+          <li>Spearheaded the enterprise MySQL database migration from 5.6 to 8.0, boosting query performance, reliability, and scale.</li>
+          <li>Upgraded core MySQL data libraries across .NET services and REST APIs, ensuring seamless runtime compatibility with 8.0.</li>
+        </ul>
+      </article>
+
+      <article class="project-item">
+        <h3 class="project-name">Real-Time Scribe Monitoring Dashboard</h3>
+        <ul>
+          <li>Implemented a real-time monitoring dashboard, boosting operational visibility and cutting manual tracking effort by 40%.</li>
+          <li>Leveraged Cloud Firestore NoSQL streams for dynamic access, ensuring real-time synchronization and EHR data integration.</li>
+        </ul>
+      </article>
+
+      <article class="project-item">
+        <h3 class="project-name">Pre-Visit Summary of Patient</h3>
+        <ul>
+          <li>Built a full-stack healthcare web portal producing clinical summaries for instant physician access to patient histories.</li>
+          <li>Designed responsive UI components and optimized RESTful backend APIs for secure, rapid clinical documentation retrieval.</li>
+        </ul>
       </article>
     </section>
 

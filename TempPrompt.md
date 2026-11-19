@@ -3,3 +3,5 @@
 2. Do not exceed existing content size , just replace keywords/sentences 
 3. Do not replace or remove following list of TECHNICAL SKILLS (C#,ASP.NET Core, MySQL, Python, javascript, HTML5 and CSS3, .NET)
 4. Do not change PROFESSIONAL SUMMARY
+5. Do not read other files from the folder unless mentioned
+6. Optimize token usage 
